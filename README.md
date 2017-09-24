@@ -8,8 +8,7 @@ Projeto em desenvolvimento, em sua fase Alpha
 
 # Team
 
-Johan Arrieta Elizondo
-Gabriel Gonçalves Ribeiro
-Rodrigo Avellar de
-Muniagurria
+Johan Arrieta Elizondo,
+Gabriel Gonçalves Ribeiro,
+Rodrigo Avellar de Muniagurria,
 William Scott Hood do Amaral Santos
