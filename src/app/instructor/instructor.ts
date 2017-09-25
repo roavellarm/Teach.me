@@ -1,15 +1,19 @@
 export class Instructor {
-    // id, nome, sobrenome, telefone, nascimento, email, logradouro, cidade, perfil, foto, sexo
     id: number;
     firstName: string;
     lastName: string;
+    birthDate: number;
     phone: number;
     email: string;
-    street: string;
+
+    // to chage
     city: string;
     state: string;
     country: string;
-    profile: string;
-    // HTMLImageElement
-    avatar: string;
+    street: string;
+    streetNumber: string;
+    streetComplement: string;
+
+
+
 }
