@@ -2,7 +2,7 @@ export class Instructor {
     id: number;
     firstName: string;
     lastName: string;
-    birthDate: number;
+    birthDate: Date;
     phone: number;
     email: string;
 

@@ -1,3 +1,19 @@
-<p>
-  index-instructor works!
-</p>
+<table class="pure-table" *ngIf="instructors.length > 0">
+  <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Cidade</th>
+      <th>Actions</th>
+  </tr>
+  <tr *ngFor="let instructor of instructors">
+      <td>{{instructor.id}}</td>
+      <td>{{instructor.firstName}}</td>
+      <td>{{instructor.email}}</td>
+      <td>{{instructor.city}}</td>
+      <td><a [routerLink]="['/edit', instructor.id]">Editar</a> |
+            <a routerLink='/index' (click)="delete(instructor)">Remover</a></td>
+  </tr>
+</table>
+
+<h3 *ngIf="instructors.length == 0"> Nenhum instrutor cadastrado! </h3>
