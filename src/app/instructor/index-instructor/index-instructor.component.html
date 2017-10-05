@@ -1,4 +1,4 @@
-<table class="pure-table custom-table" *ngIf="instructors.length > 0">
+<table *ngIf="instructors.length > 0">
   <tr>
       <th>Código</th>
       <th>Nome</th>
@@ -11,8 +11,8 @@
       <td>{{instructor.firstName}}</td>
       <td>{{instructor.email}}</td>
       <td>{{instructor.city}}</td>
-      <td><a class="pure-button pure-button-primary" [routerLink]="['/instructor/', instructor.id]">Editar</a> |
-            <a class="pure-button pure-button-danger" routerLink='/instructor' (click)="delete(instructor)">Remover</a></td>
+      <td><a [routerLink]="['/instructor/', instructor.id]">Editar</a> |
+            <a routerLink='/instructor' (click)="delete(instructor)">Remover</a></td>
   </tr>
 </table>
 
