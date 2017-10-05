@@ -1,3 +1,16 @@
-<p>
-  form-instructor works!
-</p>
+<form>
+  <fieldset>
+      <input type="text" id="firstName" name="firstName" placeholder="Primeiro Nome" [(ngModel)]="instructor.firstName">
+
+      <input type="text" id="email" name="email" placeholder="E-mail" [(ngModel)]="instructor.email">
+
+      <input type="text" id="city" name="city" placeholder="Cidade" [(ngModel)]="instructor.city">
+
+
+      <br> <br>
+      <div>
+          <input type="button" (click)="save()" value="Salvar">
+          <input type="button" (click)="cancel()" value="Cancelar">
+      </div>
+  </fieldset>
+</form>
