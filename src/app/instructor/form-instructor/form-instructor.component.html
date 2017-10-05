@@ -1,11 +1,26 @@
-<form class="pure-form">
+<form class="pure-form pure-form-aligned">
     <fieldset>
-        <div class="col-md-3">
-            <input type="text" id="firstName" name="firstName" placeholder="Primeiro Nome" [(ngModel)]="instructor.firstName">
-            <input type="text" id="lastName" name="lastName" placeholder="Último Nome" [(ngModel)]="instructor.lastName">
-            <input type="email" id="email" name="email" placeholder="E-mail" [(ngModel)]="instructor.email">
-            <input type="text" id="phone" name="phone" placeholder="Telefone" [(ngModel)]="instructor.phone">
-        </div> <br>
+        <div class="pure-control-group">
+                <label for="name">Nome</label>
+                <input type="text" id="firstName" name="firstName" [(ngModel)]="instructor.firstName">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="name">Sobrenome</label>
+            <input type="text" id="lastName" name="lastName" [(ngModel)]="instructor.lastName">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="name">E-mail</label>
+            <input type="email" id="email" name="email" [(ngModel)]="instructor.email">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="name">Telefone</label>
+            <input type="text" id="phone" name="phone" [(ngModel)]="instructor.phone">
+        </div>
+
+
 
 
         <br> <br>
