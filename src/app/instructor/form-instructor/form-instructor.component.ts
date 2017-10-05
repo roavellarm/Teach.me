@@ -33,11 +33,11 @@ export class FormInstructorComponent implements OnInit {
       this.service.put(this.id, this.instructor);
     }
 
-    this.router.navigate(['index']);
+    this.router.navigate(['/instructor']);
   }
   
   cancel() { 
-    this.router.navigate(['/index']);
+    this.router.navigate(['/instructor']);
   }
 
 }

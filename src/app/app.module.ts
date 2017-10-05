@@ -12,9 +12,9 @@ import { InstructorService } from './instructor/instructor.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
-  { path: 'index', component: IndexInstructorComponent },
-  { path: 'edit/:id', component: FormInstructorComponent },
-  { path: 'new', component: FormInstructorComponent },
+  { path: 'instructor', component: IndexInstructorComponent },
+  { path: 'instructor/:id', component: FormInstructorComponent },
+  { path: 'instructor/new', component: FormInstructorComponent },
 ]
 
 @NgModule({

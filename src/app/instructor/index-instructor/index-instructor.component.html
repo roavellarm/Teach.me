@@ -11,8 +11,8 @@
       <td>{{instructor.firstName}}</td>
       <td>{{instructor.email}}</td>
       <td>{{instructor.city}}</td>
-      <td><a class="pure-button pure-button-primary" [routerLink]="['/edit', instructor.id]">Editar</a> |
-            <a class="pure-button pure-button-danger" routerLink='/index' (click)="delete(instructor)">Remover</a></td>
+      <td><a class="pure-button pure-button-primary" [routerLink]="['/instructor/', instructor.id]">Editar</a> |
+            <a class="pure-button pure-button-danger" routerLink='/instructor' (click)="delete(instructor)">Remover</a></td>
   </tr>
 </table>
 
