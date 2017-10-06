@@ -1,16 +1,16 @@
-<table *ngIf="instructors.length > 0">
+<table class="table" *ngIf="instructors.length > 0">
   <tr>
       <th>Código</th>
       <th>Nome</th>
+      <th>Telefone</th>
       <th>E-mail</th>
-      <th>Cidade</th>
       <th>Actions</th>
   </tr>
   <tr *ngFor="let instructor of instructors">
       <td>{{instructor.id}}</td>
       <td>{{instructor.firstName}}</td>
+      <td>{{instructor.phone}}</td>
       <td>{{instructor.email}}</td>
-      <td>{{instructor.city}}</td>
       <td><a [routerLink]="['/instructor/', instructor.id]">Editar</a> |
             <a routerLink='/instructor' (click)="delete(instructor)">Remover</a></td>
   </tr>
