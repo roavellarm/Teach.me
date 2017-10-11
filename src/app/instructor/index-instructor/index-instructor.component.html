@@ -1,4 +1,4 @@
-<table class="bordered" *ngIf="instructors.length > 0">
+<table class="table" *ngIf="instructors.length > 0">
     <thead>
         <tr>
             <th>Código</th>
@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let instructor of instructors">
-            <td>{{instructor.id}}</td>
+            <th scope="row">{{instructor.id}}</th>
             <td>{{instructor.firstName}}</td>
             <td>{{instructor.phone}}</td>
             <td>{{instructor.email}}</td>
