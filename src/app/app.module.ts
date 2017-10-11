@@ -1,11 +1,12 @@
-import { MaterializeModule } from 'angular2-materialize';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { IndexInstructorComponent } from './instructor/index-instructor/index-instructor.component';
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
@@ -28,9 +29,12 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [InstructorService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
