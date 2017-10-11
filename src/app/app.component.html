@@ -1,14 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Bem vindo ao {{title}}!
   </h1>
-  <p> Site voltado para instrutores encontrarem seus respectivos alunos, tal como seus alunos encontrarem seus professores </p>
-  <p> Hoje contamos com um total de {{count}} cursos! <p>
 
+  <a routerLink='/instructor'>Lista</a> |
+  <a routerLink='/instructor/new'>Novo</a>
 
-  <h1 style="color: red"> Site em construção! </h1>
+  <br>
+  <hr>
+
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
+</div>
 
-  
 
