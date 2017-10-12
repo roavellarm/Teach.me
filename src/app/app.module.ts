@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { IndexInstructorComponent } from './instructor/index-instructor/index-instructor.component';
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
 import { InstructorService } from './instructor/instructor.service';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },

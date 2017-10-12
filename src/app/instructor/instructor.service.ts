@@ -4,7 +4,7 @@ import { Instructor } from './instructor'
 @Injectable()
 export class InstructorService {
   instructors: Instructor[] = [];
-  autoIncrement: number = 0;
+  autoIncrement: number = 1;
 
   constructor() { }
 

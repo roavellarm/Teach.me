@@ -1,6 +1,34 @@
 <form class="form-horizontal">
     <div class="form-group">
         <div class="col-1 col-sm-3">
+            <label for="firstName">E-mail</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="email" name="email" id="email" [(ngModel)]="instructor.email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
+            <label for="password">Senha</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="password" name="password" id="password" [(ngModel)]="instructor.password">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
+            <label for="password">Repetir senha</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="" name="" id="">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
             <label for="firstName">Nome</label>
         </div>
         <div class="col-3 col-sm-9">
@@ -13,7 +41,7 @@
             <label for="lastName">Sobrenome</label>
         </div>
         <div class="col-3 col-sm-9">
-            <input class="form-input" type="text" name="firstName" id="firstName" [(ngModel)]="instructor.firstName">
+            <input class="form-input" type="text" name="lastName" id="lastName" [(ngModel)]="instructor.lastName">
         </div>
     </div>
 
@@ -22,18 +50,41 @@
             <label for="phone">Telefone</label>
         </div>
         <div class="col-3 col-sm-9">
-            <input class="form-input" type="text" name="phone" id="phone" [(ngModel)]="instructor.phone">
+            <input class="form-input" type="tel" name="phone" id="phone" [(ngModel)]="instructor.phone">
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-1 col-sm-3">
-            <label for="firstName">E-mail</label>
+            <label for="adress">Endereço</label>
         </div>
         <div class="col-3 col-sm-9">
-            <input class="form-input" type="text" name="email" id="email" [(ngModel)]="instructor.email">
+            <input class="form-input" type="text" name="adress" id="adress" [(ngModel)]="instructor.adress">
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
+            <label for="birthDate">Nascimento</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="text" name="birthDate" id="birthDate" [(ngModel)]="instructor.birthDate">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
+            <label for="gender">Sexo</label>
+        </div>
+        <select class="form-select col-3 col-sm-9">
+            <option> - </option>
+            <option value="Masculino">Masculino </option>
+            <option value="Feminino">Femino</option>
+            <option value="Outro">Outro</option>
+        </select>
+    </div>
+
+
     <div class="form-group">
         <div class="col-1"></div>
         <div class="col-1 col-sm-6">
@@ -42,7 +93,5 @@
         <div class="col-1 col-sm-6">
             <input class="btn btn-danger btn-lg" type="button" (click)="cancel()" value="Cancelar">
         </div>
-
-
     </div>
 </form>
