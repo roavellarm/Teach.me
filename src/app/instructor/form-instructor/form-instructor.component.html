@@ -1,27 +1,48 @@
-<form>
+<form class="form-horizontal">
     <div class="form-group">
-        <label for="firstName">Nome</label>
-        <input class="form-control" type="text" name="firstName" id="firstName" [(ngModel)]="instructor.firstName">
+        <div class="col-1 col-sm-3">
+            <label for="firstName">Nome</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="text" name="firstName" id="firstName" [(ngModel)]="instructor.firstName">
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="lastName">Sobrenome</label>
-        <input class="form-control" type="text" name="lastName" id="lastName" [(ngModel)]="instructor.lastName">
-    </div>
-
-
-    <div class="form-group">
-        <label for="phone">Telefone</label>
-        <input class="form-control" type="text" name="phone" id="phone" [(ngModel)]="instructor.phone">
+        <div class="col-1 col-sm-3">
+            <label for="lastName">Sobrenome</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="text" name="firstName" id="firstName" [(ngModel)]="instructor.firstName">
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="email">E-mail</label>
-        <input class="form-control" type="text" name="email" id="email" [(ngModel)]="instructor.email">
+        <div class="col-1 col-sm-3">
+            <label for="phone">Telefone</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="text" name="phone" id="phone" [(ngModel)]="instructor.phone">
+        </div>
     </div>
 
-    <div>
-        <input class="btn btn-primary btn-lg" type="button" (click)="save()" value="Salvar">
-        <input class="btn btn-danger btn-lg" type="button" (click)="cancel()" value="Cancelar">
+    <div class="form-group">
+        <div class="col-1 col-sm-3">
+            <label for="firstName">E-mail</label>
+        </div>
+        <div class="col-3 col-sm-9">
+            <input class="form-input" type="text" name="email" id="email" [(ngModel)]="instructor.email">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-1"></div>
+        <div class="col-1 col-sm-6">
+            <input class="btn btn-primary btn-lg" type="button" (click)="save()" value="Salvar">
+        </div>
+        <div class="col-1 col-sm-6">
+            <input class="btn btn-danger btn-lg" type="button" (click)="cancel()" value="Cancelar">
+        </div>
+
+
     </div>
 </form>
