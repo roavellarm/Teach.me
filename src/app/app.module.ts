@@ -11,6 +11,7 @@ import { IndexInstructorComponent } from './instructor/index-instructor/index-in
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
 import { InstructorService } from './instructor/instructor.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
     IndexInstructorComponent,
     FormInstructorComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
