@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/spectre.css/*",
+        "../node_modules/spectre.css",
         "styles.css"
       ],
       "scripts": [

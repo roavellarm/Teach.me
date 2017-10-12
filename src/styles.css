@@ -1,3 +1,8 @@
+.custom-navbar {
+    background-color: #FAFAFA;
+    height: 50px;   
+}
+
 .fixed-footer {
     position:fixed;
     left:0px;
