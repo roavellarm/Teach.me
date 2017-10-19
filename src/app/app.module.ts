@@ -10,14 +10,19 @@ import { AppComponent } from './app.component';
 import { IndexInstructorComponent } from './instructor/index-instructor/index-instructor.component';
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
 import { InstructorService } from './instructor/instructor.service';
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { HomeComponent } from './shared/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
+  { path: 'index', component: HomeComponent },
   { path: 'instructor', component: IndexInstructorComponent },
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
@@ -27,6 +32,8 @@ const routes: Routes = [
     FormInstructorComponent,
     NavbarComponent,
     FooterComponent,
+    PageNotFoundComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

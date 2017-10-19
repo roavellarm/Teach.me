@@ -6,6 +6,7 @@ import { Instructor } from '../instructor';
   selector: 'app-index-instructor',
   templateUrl: './index-instructor.component.html'
 })
+
 export class IndexInstructorComponent implements OnInit {
   instructors: Instructor[] = [];
 

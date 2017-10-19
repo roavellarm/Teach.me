@@ -5,15 +5,17 @@
             <th>Nome</th>
             <th>Telefone</th>
             <th>E-mail</th>
+            <th>Nascimento</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <tr class="active" *ngFor="let instructor of instructors">
-            <td>{{instructor.id}}</td>
-            <td>{{instructor.firstName}}</td>
-            <td>{{instructor.phone}}</td>
-            <td>{{instructor.email}}</td>
+            <td>{{ instructor.id }}</td>
+            <td>{{ instructor.firstName }}</td>
+            <td>{{ instructor.phone }}</td>
+            <td>{{ instructor.email }}</td>
+            <td>{{ instructor.birthDate | date:"dd/MM/yy" }}</td>
             <td>
                 <a [routerLink]="['/instructor/', instructor.id]">Editar</a> |
                 <a routerLink='/instructor' (click)="delete(instructor)">Remover</a>
