@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
   { path: 'student', component: IndexStudentComponent },  
+  { path: 'student/new', component: FormStudentComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
 
