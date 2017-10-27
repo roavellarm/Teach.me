@@ -11,6 +11,9 @@ import { IndexInstructorComponent } from './instructor/index-instructor/index-in
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
 import { InstructorService } from './instructor/instructor.service';
 
+import { IndexStudentComponent } from './student/index-student/index-student.component';
+import { FormStudentComponent } from './student/form-student/form-student.component';
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
@@ -22,6 +25,7 @@ const routes: Routes = [
   { path: 'instructor', component: IndexInstructorComponent },
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
+  { path: 'student', component: IndexStudentComponent },  
   { path: '**', component: PageNotFoundComponent }
 ]
 
@@ -30,6 +34,8 @@ const routes: Routes = [
     AppComponent,
     IndexInstructorComponent,
     FormInstructorComponent,
+    IndexStudentComponent,
+    FormStudentComponent,
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
