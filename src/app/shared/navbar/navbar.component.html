@@ -1,16 +1,24 @@
-<header class="navbar custom-navbar">
-    <section class="navbar-section">
-        <a class="btn btn-link" routerLink='/instructor'>Listar instrutores</a>
-        <a class="btn btn-link" routerLink='/instructor/new'>Novo instrutor</a>
-        <a class="btn btn-link" routerLink='/student'>Listar alunos</a>
-        <a class="btn btn-link" routerLink='/student/new'>Novo aluno</a>
-    </section>
-    <section class="navbar-center">
-        Teach.me
-    </section>
-    <section class="navbar-section">
-        <a class="btn btn-link" href="#">Login / Cadastro</a>
-    </section>
-</header>
-
-
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand" href="#">Teach.me</a>
+        </div>
+        <div class="collapse navbar-collapse" id="">
+            <ul class="nav navbar-nav">
+                <li><a routerLink='/instructor'>Listar instrutores</a></li>
+                <li><a routerLink='/instructor/new'>Novo instrutor</a></li>
+                <li><a routerLink='/student'>Listar alunos</a></li>
+                <li><a routerLink='/student/new'>Novo aluno</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
