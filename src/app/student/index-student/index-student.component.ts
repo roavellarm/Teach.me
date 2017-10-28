@@ -1,3 +1,4 @@
+import { Student } from './../student';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-student.component.scss']
 })
 export class IndexStudentComponent implements OnInit {
+  title = "Lista de alunos";
+  students: Student[] = [];
 
   constructor() { }
 
