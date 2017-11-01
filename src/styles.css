@@ -1,14 +1,8 @@
-.custom-navbar {
-    background-color: #FAFAFA;
-    height: 50px;
-    box-shadow: 0 4px #E3E3E3;    
-}
-
 .fixed-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    width:100%;
+    position: fixed;
+    bottom: 3%;
+    width: 100%;
+    text-align: center;
 }
 
 ::-webkit-scrollbar-track {

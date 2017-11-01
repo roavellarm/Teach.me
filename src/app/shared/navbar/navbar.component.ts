@@ -5,10 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
+  currentUser: string;
+
   constructor() { }
 
   ngOnInit() {
-
+    localStorage.setItem('currentUser', 'Ciclano');
+    this.currentUser = localStorage.getItem('currentUser');  
   }
 
 }
