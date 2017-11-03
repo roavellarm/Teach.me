@@ -15,6 +15,7 @@ import { InstructorService } from './instructor/instructor.service';
 
 import { IndexStudentComponent } from './student/index-student/index-student.component';
 import { FormStudentComponent } from './student/form-student/form-student.component';
+import { StudentService } from './student/student.service';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
   { path: 'student', component: IndexStudentComponent },  
+  { path: 'student/:id', component: FormStudentComponent },
   { path: 'student/new', component: FormStudentComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
@@ -54,7 +56,7 @@ const routes: Routes = [
     ModalModule.forRoot(),
   ],
   
-  providers: [InstructorService],
+  providers: [InstructorService, StudentService],
   bootstrap: [AppComponent]
 })
 
