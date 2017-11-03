@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-.fixed-footer {
+/* <<<<<<< HEAD */
+/* .fixed-footer {
     position: fixed;
     bottom: 3%;
     width: 100%;
@@ -15,7 +15,7 @@
 }
 ::-webkit-scrollbar-thumb {
     background: #dad7d7;
-}
-=======
+} */
+/* ======= */
 @import '~bootstrap/dist/css/bootstrap.css';
->>>>>>> student
+/* >>>>>>> student */
