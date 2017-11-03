@@ -1,33 +1,72 @@
-<form #instructorForm="ngForm" class="form-horizontal" class="form-horizontal">
-
-    <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">E-mail</label>
-        <div class="col-sm-4">
-            <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required [(ngModel)]="instructor.email">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Senha</label>
-        <div class="col-sm-4">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Senha" required [(ngModel)]="instructor.password">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="repeatPassword" class="col-sm-2 control-label">Repetir Senha</label>
-        <div class="col-sm-4">
-            <input type="password" class="form-control" name="repeatPassword" id="repeatPassword" placeholder="Repetir Senha" required>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-10">
-            <div class="col-1"></div>
-            <div class="col-1 col-sm-6">
-                <input class="btn btn-primary" type="button" (click)="save()" value="Salvar" [disabled]="!instructorForm.form.valid"> |
-                <input class="btn btn-danger" type="button" (click)="cancel()" value="Cancelar">
+<form #instructorForm="ngForm" class="form-horizontal">
+    <fieldset>
+        <legend>
+            <h3>Cadastro de Aluno</h3>
+        </legend>
+        <div class="form-group">
+            <label for="firstName" class="col-lg-4 control-label">Nome</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" name="firstName" id="firstName" required placeholder="Nome" [(ngModel)]="instructor.firstName">
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="lastName" class="col-lg-4 control-label">Sobrenome</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" name="lastName" id="lastName" required placeholder="Sobrenome" [(ngModel)]="instructor.lastName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-lg-4 control-label">Nascimento</label>
+            <div class="col-lg-4">
+                <input type="date" class="form-control" name="birthDate" id="birthDate" required [(ngModel)]="instructor.birthDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="select" class="col-lg-4 control-label">Sexo</label>
+            <div class="col-lg-4">
+                <select class="form-control" id="select">
+                    <option> Selecionar Gênero </option>
+                    <option value="Masculino">Masculino </option>
+                    <option value="Feminino">Femino</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-lg-4 control-label">Email</label>
+            <div class="col-lg-4">
+                <input type="email" class="form-control" name="email" id="email" required placeholder="Email" [(ngModel)]="instructor.email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-lg-4 control-label">Senha</label>
+            <div class="col-lg-4">
+                <input type="password" class="form-control" name="password" required id="password" placeholder="Senha" [(ngModel)]="instructor.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-lg-4 control-label">Repetir Senha</label>
+            <div class="col-lg-4">
+                <input type="password" class="form-control" name="" required id="password" placeholder="Repetir Senha">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="col-lg-4 control-label">Telefone</label>
+            <div class="col-lg-4">
+                <input type="tel" class="form-control" name="phone" id="phone" required placeholder="Telefone" [(ngModel)]="instructor.phone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="adress" class="col-lg-4 control-label">Endereço</label>
+            <div class="col-lg-4">
+                <textarea class="form-control" rows="3" name="adress" id="adress" required placeholder="Endereço" [(ngModel)]="instructor.adress"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-4 col-lg-offset-4">
+                <button type="reset" class="btn btn-default" (click)="cancel()">Cancelar</button>
+                <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!instructorForm.form.valid">Salvar</button>
+            </div>
+        </div>
+    </fieldset>
 </form>

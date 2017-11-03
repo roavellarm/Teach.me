@@ -28,11 +28,11 @@ const routes: Routes = [
   { path: 'instructor', component: IndexInstructorComponent },
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
-  { path: 'student', component: IndexStudentComponent },  
+  { path: 'student', component: IndexStudentComponent },
   { path: 'student/:id', component: FormStudentComponent },
   { path: 'student/new', component: FormStudentComponent },
   { path: '**', component: PageNotFoundComponent }
-]
+];
 
 @NgModule({
   declarations: [
@@ -55,7 +55,6 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  
   providers: [InstructorService, StudentService],
   bootstrap: [AppComponent]
 })
