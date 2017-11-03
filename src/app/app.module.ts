@@ -1,15 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
-
 
 import { IndexInstructorComponent } from './instructor/index-instructor/index-instructor.component';
 import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
 import { InstructorService } from './instructor/instructor.service';
+
+import { IndexStudentComponent } from './student/index-student/index-student.component';
+import { FormStudentComponent } from './student/form-student/form-student.component';
+import { StudentService } from './student/student.service';
 
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -22,6 +28,9 @@ const routes: Routes = [
   { path: 'instructor', component: IndexInstructorComponent },
   { path: 'instructor/:id', component: FormInstructorComponent },
   { path: 'instructor/new', component: FormInstructorComponent },
+  { path: 'student', component: IndexStudentComponent },  
+  { path: 'student/:id', component: FormStudentComponent },
+  { path: 'student/new', component: FormStudentComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
 
@@ -30,6 +39,8 @@ const routes: Routes = [
     AppComponent,
     IndexInstructorComponent,
     FormInstructorComponent,
+    IndexStudentComponent,
+    FormStudentComponent,
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
@@ -39,9 +50,13 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
   ],
-  providers: [InstructorService],
+  
+  providers: [InstructorService, StudentService],
   bootstrap: [AppComponent]
 })
 
