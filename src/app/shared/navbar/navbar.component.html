@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse custom-navbar navbar-fixed">
+<nav class="navbar navbar-default custom-navbar navbar-fixed" id="myNavbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -19,7 +19,7 @@
                     <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" *ngIf="currentUser != ''">
-                        <li><a routerLink="/profile"><span class="glyphicon glyphicon-log-in"></span> Bem vindo {{currentUser}}</a></li>
+                        <li><a routerLink="/profile"><span class="glyphicon glyphicon-log-in"></span> Bem vindo  <span>{{currentUser}}</span></a></li>
                         <li><a routerLink="/index" (click)="loggout()"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>
         </div>

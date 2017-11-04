@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Teach.Me';
   count = 0;
+  currentPage: string = 'Página Atual'
 }
