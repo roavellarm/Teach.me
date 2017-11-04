@@ -23,6 +23,10 @@ export class StudentService {
     return this.students.find(student => student.id == _id);
   }
 
+  getByEmail(_email: string) {
+    return this.students.find(student => student.email == _email);
+  }
+
   add(_student: Student) {
     _student.id = this.autoIncrement++;
     this.students.push(_student);

@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { InstructorService } from '../instructor.service'
 import { Instructor } from '../instructor';
 
+import { StudentService } from '../../student/student.service';
+
 @Component({
   selector: 'app-form-instructor',
   templateUrl: './form-instructor.component.html'
@@ -11,7 +13,10 @@ export class FormInstructorComponent implements OnInit {
   instructor: Instructor;
   id: number;
 
-  constructor(private service: InstructorService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  error: string;
+  showAlert: boolean = false;
+
+  constructor(private service: InstructorService, private studentService: StudentService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -25,19 +30,34 @@ export class FormInstructorComponent implements OnInit {
     }
   }
 
-  save() { 
+  save() {  
     if (isNaN(this.id)) {
-      this.service.post(this.instructor);
-      this.instructor = new Instructor();
+      if (this.emailVerify()) {
+        this.service.post(this.instructor);
+        this.instructor = new Instructor();
+      } else {
+        this.showAlert = true;
+        this.error = "E-mail já cadastrado!";
+      }   
     } else {
       this.service.put(this.id, this.instructor);
     }
 
-    this.router.navigate(['/instructor']);
+    if (this.emailVerify()) {
+       this.router.navigate(['/instructor']);
+    }
   }
   
   cancel() { 
     this.router.navigate(['/instructor']);
+  }
+
+  emailVerify() {
+    if (this.service.getByEmail(this.instructor.email) == undefined && this.studentService.getByEmail(this.instructor.email) == undefined) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
