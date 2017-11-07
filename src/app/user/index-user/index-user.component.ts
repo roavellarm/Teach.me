@@ -4,8 +4,7 @@ import { User } from './../user';
 
 @Component({
   selector: 'app-index-user',
-  templateUrl: './index-user.component.html',
-  styleUrls: ['./index-user.component.scss']
+  templateUrl: './index-user.component.html'
 })
 export class IndexUserComponent implements OnInit {
   title = "Lista de usuários";

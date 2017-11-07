@@ -5,8 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-user',
-  templateUrl: './form-user.component.html',
-  styleUrls: ['./form-user.component.scss']
+  templateUrl: './form-user.component.html'
 })
 export class FormUserComponent implements OnInit {
   user: User;

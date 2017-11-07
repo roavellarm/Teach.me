@@ -38,6 +38,7 @@ const routes: Routes = [
 
   { path: 'user', component: IndexUserComponent },
   { path: 'user/:id', component: FormUserComponent },
+  { path: 'user/:id', component: FormUserComponent },
   { path: 'user/new', component: FormUserComponent },
 
   { path: 'course', component: IndexCourseComponent },

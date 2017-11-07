@@ -4,6 +4,8 @@ import { User } from './user';
 @Injectable()
 export class UserService {
   users:User[]=[
+    { id:0, firstName:"admin@admin", lastName:"admin", birthDate:new Date(1969,12,24), phone:"(51) 000000", email:"admin@admin.com",
+    password:"secret", adress:"Além from hell", userType:false },
     { id:1, firstName:"Ciclano", lastName:"Araujo", birthDate:new Date(1969,12,24), phone:"(51) 99567-4545", email:"ciclano@email.com",
       password:"secret", adress:"Além from hell", userType:false },
     { id:2, firstName:"Beltrano", lastName:"Da Silva", birthDate:new Date(1965,9,15), phone:"(51) 99977-7666", email:"beltrano@email.com",
