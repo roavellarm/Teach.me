@@ -1,18 +1,29 @@
 <form #courseForm="ngForm" class="form-horizontal">
   <fieldset>
     <legend><h3>Cadastro de Curso</h3></legend>
+    <!-- <div class="form-group">
+        <label for="categoria" class="col-lg-4 control-label">Categoria</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="categoria" id="categoria" required placeholder="Categoria" [(ngModel)]="course.categoria">
+        </div>
+    </div>  -->
+    <div class="form-group">
+        <label for="select" id="categoria" class="col-lg-4 control-label"> Categoria </label>
+        <div class="col-lg-4">
+            <select class="form-control" id="select">
+                <option> Selecionar Categoria </option>
+                <option value="musica"> Música </option>
+                <option value="informatica"> Informática </option>
+                <option value="danca"> Dança </option>
+                <option value="matematica"> Matemática </option>
+            </select>
+        </div>
+    </div>
     <div class="form-group">
       <label for="titulo" class="col-lg-4 control-label">Titulo</label>
       <div class="col-lg-4">
         <input type="text" class="form-control" name="titulo" id="titulo" required placeholder="Titulo" [(ngModel)]="course.titulo">
       </div>
-    </div>
-
-    <div class="form-group">
-        <label for="categoria" class="col-lg-4 control-label">Categoria</label>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" name="categoria" id="categoria" required placeholder="Categoria" [(ngModel)]="course.categoria">
-        </div>
     </div>    
     <div class="form-group">
         <label for="descriao" class="col-lg-4 control-label">Descrição</label>
@@ -25,7 +36,7 @@
         <label for="select" id="module" class="col-lg-4 control-label"> Módulo </label>
         <div class="col-lg-4">
             <select class="form-control" id="select">
-                <option> ... </option>
+                <option> Selecionar Módulo </option>
                 <option value="distancia"> Distância </option>
                 <option value="presencial"> Presencial </option>
             </select>
