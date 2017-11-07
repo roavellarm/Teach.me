@@ -14,14 +14,6 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './account/register/register.component';
 import { LoginComponent } from './account/login/login.component';
 
-import { IndexInstructorComponent } from './instructor/index-instructor/index-instructor.component';
-import { FormInstructorComponent } from './instructor/form-instructor/form-instructor.component';
-import { InstructorService } from './instructor/instructor.service';
-
-import { IndexStudentComponent } from './student/index-student/index-student.component';
-import { FormStudentComponent } from './student/form-student/form-student.component';
-import { StudentService } from './student/student.service';
-
 import { IndexUserComponent } from './user/index-user/index-user.component';
 import { FormUserComponent } from './user/form-user/form-user.component';
 import { UserService } from './user/user.service';
@@ -66,10 +58,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    IndexInstructorComponent,
-    FormInstructorComponent,
-    IndexStudentComponent,
-    FormStudentComponent,
+
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
