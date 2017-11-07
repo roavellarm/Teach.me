@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { User } from './../user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstructorService } from '../../instructor/instructor.service';
 
 @Component({
   selector: 'app-form-user',
@@ -15,7 +14,7 @@ export class FormUserComponent implements OnInit {
 
   error: string;
   showAlert: boolean = false;
-  constructor(private service: UserService, private instructorService: InstructorService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -24,7 +23,7 @@ export class FormUserComponent implements OnInit {
       this.user = new User();
     } else {
       this.user = Object.assign({},
-        this.service.get(this.id)
+        this.userService.get(this.id)
       );
     }
   }
@@ -32,14 +31,14 @@ export class FormUserComponent implements OnInit {
   save() {
     if (isNaN(this.id)) {
       if (this.emailVerify()) {
-        this.service.add(this.user);
+        this.userService.add(this.user);
         this.user = new User();
       } else {
         this.showAlert = true;
         this.error = "Email já cadastrado!";
       }
     } else {
-      this.service.update(this.id, this.user);
+      this.userService.update(this.id, this.user);
       this.router.navigate(['/user']);
       
     }
@@ -55,7 +54,7 @@ export class FormUserComponent implements OnInit {
   }
 
   emailVerify() {
-    if (this.service.getByEmail(this.user.email) == undefined && this.instructorService.getByEmail(this.user.email) == undefined) {
+    if (this.userService.getByEmail(this.user.email) == undefined && this.userService.getByEmail(this.user.email) == undefined) {
       return true;
     } else {
       return false;

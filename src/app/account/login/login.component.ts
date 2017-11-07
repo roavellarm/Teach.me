@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { InstructorService } from '../../instructor/instructor.service';
-import { StudentService } from '../../student/student.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +8,17 @@ import { StudentService } from '../../student/student.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private instructorService: InstructorService, private studentService: StudentService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   login() {
-      localStorage.setItem('currentUser', 'Ciclano');
-      this.router.navigate(['/index']);
+    let email = 'admin@admin.com'
+
+    localStorage.setItem('currentUser', '');
+    localStorage.setItem('userToken', '');
+    this.router.navigate(['/index']);
   }
 
 }

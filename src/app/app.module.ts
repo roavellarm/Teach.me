@@ -35,20 +35,17 @@ const routes: Routes = [
   { path: 'index', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'instructor', component: IndexInstructorComponent },
-  { path: 'instructor/:id', component: FormInstructorComponent },
-  { path: 'instructor/new', component: FormInstructorComponent },
-  { path: 'student', component: IndexStudentComponent },
-  { path: 'student/:id', component: FormStudentComponent },
-  { path: 'student/new', component: FormStudentComponent },
+
   { path: 'user', component: IndexUserComponent },
   { path: 'user/:id', component: FormUserComponent },
   { path: 'user/new', component: FormUserComponent },
+
   { path: 'course', component: IndexCourseComponent },
   { path: 'course/:id', component: FormCourseComponent },
   { path: 'course/new', component: FormCourseComponent },
 
   { path: 'category', component: IndexCategoryComponent },
+  { path: 'category/:id', component: FormCategoryComponent },
   { path: 'category/new', component: FormCategoryComponent },
 
   { path: '**', component: PageNotFoundComponent }
@@ -63,16 +60,16 @@ const routes: Routes = [
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
+
     RegisterComponent,
     LoginComponent,
+
     FormCourseComponent,
     IndexCourseComponent,
-    FormCourseComponent,
-    IndexCourseComponent,
-    RegisterComponent,
-    LoginComponent,
+
     IndexUserComponent,
     FormUserComponent,
+
     FormCategoryComponent,
     IndexCategoryComponent,
   ],
@@ -86,7 +83,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [InstructorService, StudentService, UserService, CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [UserService, CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 
