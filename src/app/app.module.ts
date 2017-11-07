@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
@@ -21,10 +22,15 @@ import { IndexStudentComponent } from './student/index-student/index-student.com
 import { FormStudentComponent } from './student/form-student/form-student.component';
 import { StudentService } from './student/student.service';
 
+import { FormCourseComponent } from './course/form-course/form-course.component';
+import { IndexCourseComponent } from './course/index-course/index-course.component';
+import { CourseService } from './course/course.service'
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomeComponent } from './shared/home/home.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -37,6 +43,9 @@ const routes: Routes = [
   { path: 'student', component: IndexStudentComponent },
   { path: 'student/:id', component: FormStudentComponent },
   { path: 'student/new', component: FormStudentComponent },
+  { path: 'course', component: IndexCourseComponent },
+  { path: 'course/:id', component: FormCourseComponent },
+  { path: 'course/new', component: FormCourseComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -54,7 +63,10 @@ const routes: Routes = [
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    FormCourseComponent,
+    IndexCourseComponent,
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
@@ -64,7 +76,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [InstructorService, StudentService],
+  providers: [InstructorService, StudentService,CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 

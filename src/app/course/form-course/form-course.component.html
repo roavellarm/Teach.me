@@ -1,0 +1,65 @@
+<form #courseForm="ngForm" class="form-horizontal">
+  <fieldset>
+    <legend><h3>Cadastro de Curso</h3></legend>
+    <div class="form-group">
+      <label for="titulo" class="col-lg-4 control-label">Titulo</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="titulo" id="titulo" required placeholder="Titulo" [(ngModel)]="course.titulo">
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="instructorId" class="col-lg-4 control-label">Instructor Id</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="instructorId" id="instructorId" required placeholder="Instructor Id" [(ngModel)]="course.instructorid">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categoria" class="col-lg-4 control-label">Categoria</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="categoria" id="categoria" required placeholder="Categoria" [(ngModel)]="course.categoria">
+        </div>
+    </div>    
+    <div class="form-group">
+        <label for="descriao" class="col-lg-4 control-label">Descrição</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="descriao" id="descriao" required placeholder="Descrição" [(ngModel)]="course.descricao">
+        </div>
+    </div> 
+    <div class="form-group">
+      <label for="moduloid" class="col-lg-4 control-label">Modulo id</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="moduloid" id="moduloid" required placeholder="Modulo id" [(ngModel)]="course.moduloid">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="vagas" class="col-lg-4 control-label">Vagas</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="vagas" required id="vagas" placeholder="Vagas" [(ngModel)]="course.vagas">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="valor" class="col-lg-4 control-label">Valor</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" name="valor" required id="valor" placeholder="Courso" [(ngModel)]="course.valor">
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="generoAlvo" class="col-lg-4 control-label">Genero Alvo</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="generoAlvo" id="generoAlvo" required placeholder="Genero Alvo" [(ngModel)]="course.generoAlvo">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="faixaEtaria" class="col-lg-4 control-label">Faixa Etaria</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="faixaEtaria" id="faixaEtaria" required placeholder="Genero Alvo" [(ngModel)]="course.faixaEtaria">
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-4 col-lg-offset-4">
+        <button type="reset" class="btn btn-default" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!courseForm.form.valid">Salvar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
