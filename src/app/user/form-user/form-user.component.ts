@@ -40,6 +40,8 @@ export class FormUserComponent implements OnInit {
       }
     } else {
       this.service.update(this.id, this.user);
+      this.router.navigate(['/user']);
+      
     }
 
     if (this.emailVerify()) {

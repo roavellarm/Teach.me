@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
     if (this.emailVerify()) {
       this.service.add(this.user);
       this.user = new User();
+      this.router.navigate(['/user']);      
     } else {
       this.showAlert = true;
       this.error = "Email já cadastrado!";
