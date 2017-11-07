@@ -68,6 +68,10 @@ const routes: Routes = [
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+    FormCourseComponent,
+    IndexCourseComponent,
     FormCourseComponent,
     IndexCourseComponent,
     RegisterComponent,
@@ -75,6 +79,7 @@ const routes: Routes = [
     IndexUserComponent,
     FormUserComponent,
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
