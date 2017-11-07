@@ -5,11 +5,10 @@ import { CourseService } from "../course.service";
 
 @Component({
   selector: 'app-index-course',
-  templateUrl: './index-course.component.html',
-  styleUrls: ['./index-course.component.scss']
+  templateUrl: './index-course.component.html'
 })
 export class IndexCourseComponent implements OnInit {
-  title = "Lista de cursos";
+  title = "Lista de Cursos";
   courses: Course[]=[];
   constructor(private service:CourseService) { }
 

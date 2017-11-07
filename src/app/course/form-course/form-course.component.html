@@ -7,12 +7,7 @@
         <input type="text" class="form-control" name="titulo" id="titulo" required placeholder="Titulo" [(ngModel)]="course.titulo">
       </div>
     </div>
-    <div class="form-group">
-        <label for="instructorId" class="col-lg-4 control-label">Instructor Id</label>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" name="instructorId" id="instructorId" required placeholder="Instructor Id" [(ngModel)]="course.instructorid">
-        </div>
-    </div>
+
     <div class="form-group">
         <label for="categoria" class="col-lg-4 control-label">Categoria</label>
         <div class="col-lg-4">
@@ -22,39 +17,31 @@
     <div class="form-group">
         <label for="descriao" class="col-lg-4 control-label">Descrição</label>
         <div class="col-lg-4">
-            <input type="text" class="form-control" name="descriao" id="descriao" required placeholder="Descrição" [(ngModel)]="course.descricao">
+            <textarea rows="5" type="text" class="form-control" name="descriao" id="descriao" required placeholder="Descrição" [(ngModel)]="course.descricao"></textarea>
         </div>
     </div> 
+
     <div class="form-group">
-      <label for="moduloid" class="col-lg-4 control-label">Modulo id</label>
-      <div class="col-lg-4">
-        <input type="text" class="form-control" name="moduloid" id="moduloid" required placeholder="Modulo id" [(ngModel)]="course.moduloid">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="vagas" class="col-lg-4 control-label">Vagas</label>
-      <div class="col-lg-4">
-        <input type="text" class="form-control" name="vagas" required id="vagas" placeholder="Vagas" [(ngModel)]="course.vagas">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="valor" class="col-lg-4 control-label">Valor</label>
-      <div class="col-lg-4">
-        <input type="text" class="form-control" name="valor" required id="valor" placeholder="Courso" [(ngModel)]="course.valor">
-      </div>
-    </div>
-    <div class="form-group">
-        <label for="generoAlvo" class="col-lg-4 control-label">Genero Alvo</label>
+        <label for="select" id="module" class="col-lg-4 control-label"> Módulo </label>
         <div class="col-lg-4">
-            <input type="text" class="form-control" name="generoAlvo" id="generoAlvo" required placeholder="Genero Alvo" [(ngModel)]="course.generoAlvo">
+            <select class="form-control" id="select">
+                <option> ... </option>
+                <option value="distancia"> Distância </option>
+                <option value="presencial"> Presencial </option>
+            </select>
         </div>
     </div>
+    
+
     <div class="form-group">
-        <label for="faixaEtaria" class="col-lg-4 control-label">Faixa Etaria</label>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" name="faixaEtaria" id="faixaEtaria" required placeholder="Genero Alvo" [(ngModel)]="course.faixaEtaria">
-        </div>
+      <label for="price" class="col-lg-4 control-label"> Preço </label>
+      <div class="col-lg-4">
+        <input type="number" class="form-control" name="price" required id="price" placeholder="Preço" [(ngModel)]="course.price">
+      </div>
     </div>
+
+
+
     <div class="form-group">
       <div class="col-lg-4 col-lg-offset-4">
         <button type="reset" class="btn btn-default" (click)="cancel()">Cancelar</button>

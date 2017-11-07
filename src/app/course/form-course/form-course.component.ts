@@ -5,8 +5,7 @@ import { CourseService } from "../course.service";
 
 @Component({
   selector: 'app-form-course',
-  templateUrl: './form-course.component.html',
-  styleUrls: ['./form-course.component.scss']
+  templateUrl: './form-course.component.html'
 })
 export class FormCourseComponent implements OnInit {
   course:Course;
@@ -29,6 +28,7 @@ export class FormCourseComponent implements OnInit {
   save() 
   {
     if (isNaN(this.id)) {
+      this.course.instructor = localStorage.getItem('currentUser');
       this.service.add(this.course);
       this.course = new Course();
     } 
