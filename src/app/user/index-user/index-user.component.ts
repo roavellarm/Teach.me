@@ -8,7 +8,7 @@ import { User } from './../user';
   styleUrls: ['./index-user.component.scss']
 })
 export class IndexUserComponent implements OnInit {
-  title = "Lista de alunos";
+  title = "Lista de usuários";
   users: User[]=[];
 
   constructor(private service:UserService) { }

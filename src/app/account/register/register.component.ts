@@ -10,32 +10,34 @@ import { UserService } from '../../user/user.service';
 })
 export class RegisterComponent implements OnInit {
   user: User;
-  type: boolean;
+  error: string;
+  showAlert: boolean = false;
 
   constructor(private service: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.type = this.activatedRoute.snapshot.params['userType'];
     this.user = new User();
-    
-    if (this.type) {
-        this.user.userType = true;
+  }
+
+  save() {
+    if (this.emailVerify()) {
+      this.service.add(this.user);
+      this.user = new User();
     } else {
-        this.user.userType = false;
+      this.showAlert = true;
+      this.error = "Email já cadastrado!";
     }
-    this.service.add(this.user);   
+  }
+
+  cancel() {
     this.router.navigate(['/user']);
   }
 
-  // save() {
-  //   if (this.type) {
-  //       this.user.userType = true;
-  //       this.service.add(this.user);
-  //   } else {
-  //       this.user.userType = false;
-  //   }
-  //   this.service.add(this.user);    
-  //   this.router.navigate(['/user']);
-  // }
-
+  emailVerify() {
+    if (this.service.getByEmail(this.user.email) == undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -5,16 +5,18 @@
         <thead>
             <tr>
                 <th>Nº</th>
+                <th>Tipo</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
                 <th>Nascimento</th>
-                <th><a class="btn btn-success btn-sm" routerLink='/user/new'>Novo aluno</a></th>
+                <th><a class="btn btn-success btn-sm" routerLink='/user/new'>Novo usuário</a></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{user.id}}</td>
+                <td>{{user.userType}}</td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.phone}}</td>
                 <td>{{user.email}}</td>
