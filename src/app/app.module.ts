@@ -84,7 +84,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [InstructorService, StudentService,CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [InstructorService, StudentService, UserService, CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 
