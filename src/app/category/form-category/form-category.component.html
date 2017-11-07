@@ -1,0 +1,23 @@
+<form #categoryForm="ngForm" class="form-horizontal">
+    <fieldset>
+        <legend>
+            <h3>Cadastro de Categoria</h3>
+        </legend>
+
+        <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>
+
+        <div class="form-group">
+            <label for="title" class="col-lg-4 control-label">Título</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" name="title" id="title" required placeholder="title" [(ngModel)]="category.title">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-lg-4 col-lg-offset-4">
+                <button type="reset" class="btn btn-default" (click)="cancel()">Cancelar</button>
+                <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!categoryForm.form.valid">Salvar</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -34,6 +34,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomeComponent } from './shared/home/home.component';
+import { FormCategoryComponent } from './category/form-category/form-category.component';
+import { IndexCategoryComponent } from './category/index-category/index-category.component';
 
 
 const routes: Routes = [
@@ -53,6 +55,10 @@ const routes: Routes = [
   { path: 'course', component: IndexCourseComponent },
   { path: 'course/:id', component: FormCourseComponent },
   { path: 'course/new', component: FormCourseComponent },
+
+  { path: 'category', component: IndexCategoryComponent },
+  { path: 'category/new', component: FormCategoryComponent },
+
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -78,6 +84,8 @@ const routes: Routes = [
     LoginComponent,
     IndexUserComponent,
     FormUserComponent,
+    FormCategoryComponent,
+    IndexCategoryComponent,
   ],
   
   imports: [
