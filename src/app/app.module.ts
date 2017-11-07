@@ -22,6 +22,10 @@ import { IndexStudentComponent } from './student/index-student/index-student.com
 import { FormStudentComponent } from './student/form-student/form-student.component';
 import { StudentService } from './student/student.service';
 
+import { IndexUserComponent } from './user/index-user/index-user.component';
+import { FormUserComponent } from './user/form-user/form-user.component';
+import { UserService } from './user/user.service';
+
 import { FormCourseComponent } from './course/form-course/form-course.component';
 import { IndexCourseComponent } from './course/index-course/index-course.component';
 import { CourseService } from './course/course.service'
@@ -43,6 +47,9 @@ const routes: Routes = [
   { path: 'student', component: IndexStudentComponent },
   { path: 'student/:id', component: FormStudentComponent },
   { path: 'student/new', component: FormStudentComponent },
+  { path: 'user', component: IndexUserComponent },
+  { path: 'user/:id', component: FormUserComponent },
+  { path: 'user/new', component: FormUserComponent },
   { path: 'course', component: IndexCourseComponent },
   { path: 'course/:id', component: FormCourseComponent },
   { path: 'course/new', component: FormCourseComponent },
@@ -65,6 +72,8 @@ const routes: Routes = [
     IndexCourseComponent,
     RegisterComponent,
     LoginComponent,
+    IndexUserComponent,
+    FormUserComponent,
   ],
   imports: [
     BrowserModule,

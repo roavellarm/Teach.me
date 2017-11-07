@@ -1,0 +1,34 @@
+<h3>{{title}}</h3>
+
+<div class="table-responsive" *ngIf="users.length > 0">
+    <table class="table table-striped table-hover">                
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Nascimento</th>
+                <th><a class="btn btn-success btn-sm" routerLink='/user/new'>Novo aluno</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.birthDate | date:"dd/MM/yyyy" }}</td>
+                <td>                                            
+                    <a class="btn btn-info btn-sm" [routerLink]="['/user/', user.id]"><span class="glyphicon glyphicon-pencil"></span></a> &nbsp;
+                    <a class="btn btn-danger btn-sm" routerLink='/user' (click)="delete(user)"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align:center" *ngIf="users.length == 0">
+    <h3> Nenhum aluno cadastrado! </h3>   
+    <a class="btn btn-success btn-sm" routerLink='/user/new'>Cadastrar novo aluno</a>     
+</div>
