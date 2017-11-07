@@ -16,6 +16,10 @@ export class InstructorService {
     return this.instructors.find(instructor => instructor.id == _id);
   }
 
+  getByEmail(_email: string) {
+    return this.instructors.find(instructor => instructor.email == _email);
+  }
+
   post(_instructor: Instructor) {
     _instructor.id = this.autoIncrement++;
     this.instructors.push(_instructor);

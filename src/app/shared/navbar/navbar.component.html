@@ -1,41 +1,4 @@
-<!-- <<<<<<< HEAD
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Teach.Me</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="btn btn-link" routerLink='/instructor'>Listar instrutores</a>
-                    
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" *ngIf="currentUser == ''">
-                <li>
-                    <a class="btn btn-link" routerLink='/student/new'>Cadastrar como Aluno</a>
-                </li>
-                <li>
-                    <a class="btn btn-link" routerLink='/instructor/new'>Cadastrar como Instrutor</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" *ngIf="currentUser != ''">
-                <li>
-                    <a class="btn btn-link" routerLink='/profile/:id'>Seja bem vindo <strong>{{currentUser}}</strong></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-======= -->
-<nav class="navbar navbar-inverse navbar-fixed">
+<nav class="navbar navbar-default custom-navbar navbar-fixed" id="myNavbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -44,20 +7,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand" href="#">Teach.me</a>
+            <a class="navbar-brand" routerLink='/index'>Teach.me</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a routerLink='/instructor'>Listar instrutores</a></li>
-                <li><a routerLink='/instructor/new'>Novo instrutor</a></li>
-                <li><a routerLink='/student'>Gerenciar alunos</a></li>
-                <li><a routerLink='/course'>Gerenciar curso</a></li>
+                <li><a routerLink='/instructor'>Gerenciar Instrutores</a></li>
+                <li><a routerLink='/student'>Gerenciar Alunos</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
-            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="currentUser == ''">
+                    <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" *ngIf="currentUser != ''">
+                        <li><a routerLink="/profile"><span class="glyphicon glyphicon-log-in"></span> Bem vindo  <span>{{currentUser}}</span></a></li>
+                        <li><a routerLink="/index" (click)="loggout()"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
         </div>
     </div>
-<!-- >>>>>>> student -->
 </nav>
+
+<br> <br>
