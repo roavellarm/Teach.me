@@ -26,6 +26,8 @@ import { FormCategoryComponent } from './category/form-category/form-category.co
 import { IndexCategoryComponent } from './category/index-category/index-category.component';
 import { CategoryService } from './category/category.service'
 
+import { SexService } from './sex/sex.service'
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
@@ -87,7 +89,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [UserService, CourseService, CategoryService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [UserService, CourseService, CategoryService, SexService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 

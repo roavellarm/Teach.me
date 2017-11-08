@@ -1,3 +1,5 @@
+import { Sex } from './../sex/sex';
+
 export class User {
     id: number;
     firstName: string;
@@ -15,7 +17,7 @@ export class User {
     // streetNumber: string;
     // streetComplement: string;
     // image: Blob;
-    // sex: string;
+    sex: Sex;
     
     // temporary
     adress: string; 
