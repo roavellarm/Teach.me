@@ -22,9 +22,7 @@ export class FormUserComponent implements OnInit {
     if (isNaN(this.id)){
       this.user = new User();
     } else {
-      this.user = Object.assign({},
-        this.userService.get(this.id)
-      );
+      this.user = Object.assign({}, this.userService.get(this.id));
     }
   }
 

@@ -9,14 +9,20 @@ import { DatePipe } from '@angular/common';
 })
 export class IndexCourseComponent implements OnInit {
   title = "Lista de Cursos";
-  courses: Course[]=[];
-  constructor(private service:CourseService) { }
+  courses: Course[] = [];
+  currentUser: string;
+  userToken: string;
+
+
+  constructor(private service: CourseService) { }
 
   ngOnInit() {
-   this.courses = this.service.getAll();
+    this.courses = this.service.getAll();
+    this.currentUser = localStorage.getItem('currentUser');
+    this.userToken = localStorage.getItem('userToken');
   }
-  delete(_course:Course){
-  this.service.delete(_course);
+  delete(_course: Course) {
+    this.service.delete(_course);
   }
 
 }

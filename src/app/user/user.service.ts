@@ -11,13 +11,24 @@ export class UserService {
     { id:3, firstName:"Beltrano", lastName:"Da Silva", birthDate:new Date(1965,9,15), phone:"(51) 99977-7666", email:"beltrano@email.com",
       password:"secret", adress:"Onde o diabo perdeu as botas", userType:true },
     { id:4, firstName:"Fulano", lastName:"M", birthDate:new Date(1984,5,30), phone:"(55) 98234-6384", email:"fulano@email.com",
-      password:"secret", adress:"Ohio que o parta", userType:false }
+      password:"secret", adress:"Ohio que o parta", userType:false },
+    { id:5, firstName:"Fulano", lastName:"M", birthDate:new Date(1984,5,30), phone:"(55) 98234-6384", email:"estudante@gmail.com",
+       password:"estudante", adress:"Ohio que o parta", userType:true },
+    { id:6, firstName:"Fulano", lastName:"M", birthDate:new Date(1984,5,30), phone:"(55) 98234-6384", email:"instrutor@gmail.com",
+    password:"instrutor", adress:"Ohio que o parta", userType:false }
   ];
 
   autoIncrement: number = 5;
 
   constructor() { }
 
+  getStudents() {
+    return this.getAll().filter(user => user.userType == true); 
+  }
+
+  getInstructors() {
+    return this.getAll().filter(user => user.userType == false); 
+  }
 
   getAll() {
     return this.users;

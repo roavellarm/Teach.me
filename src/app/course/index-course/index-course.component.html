@@ -1,7 +1,7 @@
 <h3>{{title}}</h3>
 
 <div class="row" *ngIf="courses.length > 0">
-    <a class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
+    <a *ngIf="!currentUser == ''" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
     <hr>
 
     <div class="col-md-12">
@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <label>Código:</label> {{course.id}} &nbsp; | &nbsp;
                 <label>Título:</label> {{course.titulo | titlecase}} &nbsp; | &nbsp;
-                <label>Instrutor:</label> {{course.user}} &nbsp; | &nbsp;
+                <label>Instrutor:</label> {{ course.student == '' && course.student || course.instructor }} &nbsp; | &nbsp;
                 <label>Preço:</label> {{course.price | currency:"BRL":true}}
             </div>
             <div class="panel-footer">
@@ -27,5 +27,5 @@
 
 <div style="text-align:center" *ngIf="courses.length == 0">
     <h3> Nenhum curso cadastrado! </h3>
-    <a class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
+    <a *ngIf="!currentUser == ''" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
 </div>

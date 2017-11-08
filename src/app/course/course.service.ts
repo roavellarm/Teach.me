@@ -26,12 +26,12 @@ export class CourseService {
     return this.courses.find(course => course.id == _id);
   }
 
-  add(_course: Course) {
+  post(_course: Course) {
     _course.id = this.autoIncrement++;
     this.courses.push(_course);
   }
 
-  update(_id: number, _course: Course) {
+  put(_id: number, _course: Course) {
     let i = this.courses.indexOf(this.get(_id), 0);
     this.courses[i] = _course;
   }
