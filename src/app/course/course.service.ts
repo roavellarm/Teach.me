@@ -15,8 +15,6 @@ export class CourseService {
   autoIncrement: number = 1;
 
   constructor(private userService: UserService, private categoryService: CategoryService) { 
-    this.instructors = userService.getInstructors();
-    this.students = userService.getStudents();
     this.categories = categoryService.getAll();
   }
 

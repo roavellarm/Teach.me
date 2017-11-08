@@ -13,20 +13,28 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.user = new User();
   }
 
   login() {
-    let tempEmail = 'admin@admin.com';
+
+    let tempEmail = this.user.email;
+    let tempPassword = this.user.password;
+
     let tempUser = this.userService.getByEmail(tempEmail);
 
     if (tempUser != undefined) {
-      if (tempUser.email == 'admin@admin.com') {
-        localStorage.setItem('userToken', 'admin');
+      if (tempEmail === tempUser.email && tempPassword === tempUser.password) {
+        if (tempUser.email == 'admin@admin.com') {
+          localStorage.setItem('userToken', 'admin');
+        } else {
+          tempUser.userType ? localStorage.setItem('userToken', 'student') : localStorage.setItem('userToken', 'instructor');
+        }
+        localStorage.setItem('currentUser', tempEmail);
+        window.location.assign("/index");
       } else {
-        tempUser.userType ? localStorage.setItem('userToken', 'student') : localStorage.setItem('userToken', 'instructor');
+        alert('Senha incorreta!'); 
       }
-      localStorage.setItem('currentUser', tempEmail);
-      window.location.assign("/index");
     } else {
       alert('E-mail inexistente');
     }

@@ -16,7 +16,7 @@
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{user.id}}</td>
-                <td>{{user.userType}}</td>
+                <td>{{ user.userType && 'Estudante' || 'Instrutor' }}</td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.phone}}</td>
                 <td>{{user.email}}</td>

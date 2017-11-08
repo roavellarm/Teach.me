@@ -14,14 +14,14 @@ import { User } from './../../user/user';
 export class FormCourseComponent implements OnInit {
   course:Course;
   user: User;
-  instructors: User[]=[];
+  users: User[]=[];
   categories: Category[]=[];
   id:number;
   constructor(private service: CourseService, private userService: UserService, private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() 
   {
-    this.instructors = this.userService.getInstructors();
+    this.users = this.userService.getAll();
     this.categories = this.categoryService.getAll();
     this.id = this.activatedRoute.snapshot.params['id'];
 

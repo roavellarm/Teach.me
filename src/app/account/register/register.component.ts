@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   save() {
     if (this.emailVerify()) {
-      this.service.add(this.user);
+      this.service.post(this.user);
       this.user = new User();
       this.router.navigate(['/user']);      
     } else {

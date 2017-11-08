@@ -3,17 +3,6 @@
     <legend><h3>Cadastro de Usuário</h3></legend>
 
     <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>    
-    <div class="form-group">    
-      <label class="col-lg-4 control-label">Tipo de usuário</label>
-      <div class="col-lg-4">
-        <div>
-          <input type="radio" name="userType" id=userType value="false" checked="" [(ngModel)]="user.userType">
-          Instrutor
-          <input type="radio" name="userType" id=userType value="true" [(ngModel)]="user.userType">
-          Aluno
-        </div>
-      </div>
-    </div>
 
     <div class="form-group">
       <label for="firstName" class="col-lg-4 control-label">Nome</label>
@@ -44,24 +33,21 @@
         </select>
       </div>
     </div>
-    <div class="form-group">
+
+    <!-- <div class="form-group">
       <label for="email" class="col-lg-4 control-label">Email</label>
       <div class="col-lg-4">
         <input type="email" class="form-control" name="email" id="email" required placeholder="Email" [(ngModel)]="user.email">
       </div>
-    </div>
+    </div> -->
+    
     <div class="form-group">
       <label for="password" class="col-lg-4 control-label">Senha</label>
       <div class="col-lg-4">
         <input type="password" class="form-control" name="password" required id="password" placeholder="Senha" [(ngModel)]="user.password">
       </div>
     </div>
-    <div class="form-group">
-      <label for="password" class="col-lg-4 control-label">Repetir Senha</label>
-      <div class="col-lg-4">
-        <input type="password" class="form-control" name="" required id="password" placeholder="Repetir Senha">
-      </div>
-    </div>
+
     <div class="form-group">
         <label for="phone" class="col-lg-4 control-label">Telefone</label>
         <div class="col-lg-4">

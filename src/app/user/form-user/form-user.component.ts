@@ -31,14 +31,14 @@ export class FormUserComponent implements OnInit {
   save() {
     if (isNaN(this.id)) {
       if (this.emailVerify()) {
-        this.userService.add(this.user);
+        this.userService.post(this.user);
         this.user = new User();
       } else {
         this.showAlert = true;
         this.error = "Email já cadastrado!";
       }
     } else {
-      this.userService.update(this.id, this.user);
+      this.userService.put(this.id, this.user);
       this.router.navigate(['/user']);
       
     }
