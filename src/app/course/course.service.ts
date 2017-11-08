@@ -1,3 +1,5 @@
+import { CategoryService } from './../category/category.service';
+import { Category } from './../category/category';
 import { Injectable } from '@angular/core';
 import { Course } from "./course";
 import { UserService } from '../user/user.service';
@@ -7,13 +9,13 @@ import { User } from '../user/user';
 export class CourseService {
   courses: Course[] = [];
   users: User[] = [];
-  // categories: Category[] = [];
+  categories: Category[] = [];
 
   autoIncrement: number = 1;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private categoryService: CategoryService) { 
     this.users = userService.getAll();
-    // this.categories = categoryService.getAll();
+    this.categories = categoryService.getAll();
   }
 
   getAll() {

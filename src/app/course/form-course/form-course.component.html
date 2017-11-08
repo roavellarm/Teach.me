@@ -1,21 +1,14 @@
 <form #courseForm="ngForm" class="form-horizontal">
   <fieldset>
     <legend><h3>Cadastro de Curso</h3></legend>
-    <!-- <div class="form-group">
-        <label for="categoria" class="col-lg-4 control-label">Categoria</label>
-        <div class="col-lg-4">
-            <input type="text" class="form-control" name="categoria" id="categoria" required placeholder="Categoria" [(ngModel)]="course.categoria">
-        </div>
-    </div>  -->
+
     <div class="form-group">
-        <label for="select" id="categoria" class="col-lg-4 control-label"> Categoria </label>
+        <label for="select" id="categories" class="col-lg-4 control-label">Categoria</label>
         <div class="col-lg-4">
-            <select class="form-control" id="select">
-                <option> Selecionar Categoria </option>
-                <option value="musica"> Música </option>
-                <option value="informatica"> Informática </option>
-                <option value="danca"> Dança </option>
-                <option value="matematica"> Matemática </option>
+            <select class="form-control" id="categories" name="categories" [(ngModel)]="course.category" >
+                <option *ngFor="let cat of categories" [ngValue]="cat">
+                    {{cat.title}}
+                </option>
             </select>
         </div>
     </div>
@@ -33,25 +26,21 @@
     </div> 
 
     <div class="form-group">
-        <label for="select" id="module" class="col-lg-4 control-label"> Módulo </label>
+        <label for="select" id="modules" class="col-lg-4 control-label"> Módulo </label>
         <div class="col-lg-4">
-            <select class="form-control" id="select">
-                <option> Selecionar Módulo </option>
-                <option value="distancia"> Distância </option>
-                <option value="presencial"> Presencial </option>
+            <select class="form-control" id="modules" required name="modules" [(ngModel)]="course.module">
+                <option [ngValue]="false"> Distância </option>
+                <option [ngValue]="true"> Presencial </option>
             </select>
         </div>
     </div>
-    
 
     <div class="form-group">
       <label for="price" class="col-lg-4 control-label"> Preço </label>
       <div class="col-lg-4">
-        <input type="number" class="form-control" name="price" required id="price" placeholder="Preço" [(ngModel)]="course.price">
+        <input type="number" class="form-control" name="price" step="0.01" required id="price" placeholder="Preço" [(ngModel)]="course.price">
       </div>
     </div>
-
-
 
     <div class="form-group">
       <div class="col-lg-4 col-lg-offset-4">

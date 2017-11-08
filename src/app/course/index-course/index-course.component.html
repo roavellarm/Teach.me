@@ -7,13 +7,14 @@
     <div class="col-md-12">
         <div class="panel panel-primary" *ngFor="let course of courses">
             <div class="panel-body">
-                <label>Código:</label> {{course.id}} |
-                <label>Título:</label> {{course.titulo}} |
-                <label>Instrutor:</label> {{course.instructor}}
+                <label>Código:</label> {{course.id}} &nbsp; | &nbsp;
+                <label>Título:</label> {{course.titulo | titlecase}} &nbsp; | &nbsp;
+                <label>Instrutor:</label> {{course.user}} &nbsp; | &nbsp;
+                <label>Preço:</label> {{course.price | currency:"BRL":true}}
             </div>
             <div class="panel-footer">
                 <label>Descrição:</label>
-                <p>{{course.descricao}}</p>
+                <p>{{course.descricao | uppercase}}</p>
                 <div class="panel-footer">
                     <button class="btn btn-primary"> Participar </button>
                     <button class="btn btn-secondary"> Sair </button>

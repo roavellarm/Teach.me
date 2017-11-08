@@ -3,8 +3,14 @@ import { Category } from './category';
 
 @Injectable()
 export class CategoryService {
-  categories: Category[] = [];
-  autoIncrement: number = 1;
+  categories: Category[] = [
+    { id:0, title:"Reforço Escolar" },
+    { id:1, title:"Idioma" },
+    { id:2, title:"Música" },
+    { id:3, title:"Esportes" },
+    { id:4, title:"Artes e Lazer" },
+  ];
+  autoIncrement: number = 5;
 
   constructor() { }
 

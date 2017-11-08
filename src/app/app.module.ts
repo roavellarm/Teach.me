@@ -30,6 +30,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomeComponent } from './shared/home/home.component';
+import { MoedaPipe } from './moeda.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -74,6 +75,7 @@ const routes: Routes = [
 
     FormCategoryComponent,
     IndexCategoryComponent,
+    MoedaPipe,
   ],
   
   imports: [

@@ -1,7 +1,11 @@
+import { UserService } from './../../user/user.service';
+import { CategoryService } from './../../category/category.service';
+import { Category } from './../../category/category';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from "../course";
 import { CourseService } from "../course.service";
+import { User } from './../../user/user';
 
 @Component({
   selector: 'app-form-course',
@@ -9,11 +13,16 @@ import { CourseService } from "../course.service";
 })
 export class FormCourseComponent implements OnInit {
   course:Course;
+  user: User;
+  users: User[]=[];
+  categories: Category[]=[];
   id:number;
-  constructor(private service: CourseService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: CourseService, private userService: UserService, private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() 
   {
+    this.users = this.userService.getAll();
+    this.categories = this.categoryService.getAll();
     this.id = this.activatedRoute.snapshot.params['id'];
 
     if (isNaN(this.id)){
@@ -28,7 +37,8 @@ export class FormCourseComponent implements OnInit {
   save() 
   {
     if (isNaN(this.id)) {
-      this.course.instructor = localStorage.getItem('currentUser');
+      // this.user = localStorage.getItem('currentUser');
+      this.course.user = this.user;
       this.service.add(this.course);
       this.course = new Course();
     } 

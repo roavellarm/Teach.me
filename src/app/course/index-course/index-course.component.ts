@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from "../course";
 import { CourseService } from "../course.service";
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-index-course',
