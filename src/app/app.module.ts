@@ -57,8 +57,6 @@ const routes: Routes = [
   { path: 'category/:id', component: FormCategoryComponent },
   { path: 'category/new', component: FormCategoryComponent },
 
-  
-
   { path: '**', component: PageNotFoundComponent }
 ];
 
