@@ -5,6 +5,7 @@ export class Course {
     id: number;
     title: string;
     instructor: User;
+    contact: string;
     student: User;
     category: Category;
     description: string;

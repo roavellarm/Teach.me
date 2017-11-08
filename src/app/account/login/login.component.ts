@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
     let tempEmail = this.user.email;
     let tempPassword = this.user.password;
 
-    let tempUser = this.userService.getByEmail(tempEmail);
+    let tempUser = Object.assign({}, this.userService.getByEmail(tempEmail));
 
-    if (tempUser != undefined) {
+    if (tempUser.email != undefined) {
       if (tempEmail === tempUser.email && tempPassword === tempUser.password) {
         if (tempUser.email == 'admin@admin.com') {
           localStorage.setItem('userToken', 'admin');
@@ -31,15 +31,16 @@ export class LoginComponent implements OnInit {
           tempUser.userType ? localStorage.setItem('userToken', 'student') : localStorage.setItem('userToken', 'instructor');
         }
         localStorage.setItem('currentUser', tempEmail);
+              
         window.location.assign("/index");
       } else {
-        alert('Senha incorreta!'); 
+        alert('Senha incorreta!');
       }
     } else {
       alert('E-mail inexistente');
     }
 
-
+    
   }
 
 }

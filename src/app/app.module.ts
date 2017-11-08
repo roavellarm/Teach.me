@@ -33,15 +33,21 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomeComponent } from './shared/home/home.component';
 import { MoedaPipe } from './moeda.pipe';
+import { AboutComponent } from './shared/about/about.component';
+import { ContactComponent } from './shared/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
+
   { path: 'index', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
   { path: 'user', component: IndexUserComponent },
-  { path: 'user/:id', component: FormUserComponent },
   { path: 'user/:id', component: FormUserComponent },
   { path: 'user/new', component: FormUserComponent },
 
@@ -78,6 +84,8 @@ const routes: Routes = [
     FormCategoryComponent,
     IndexCategoryComponent,
     MoedaPipe,
+    AboutComponent,
+    ContactComponent,
   ],
   
   imports: [
