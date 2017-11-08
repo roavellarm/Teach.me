@@ -7,12 +7,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-form-user',
   templateUrl: './form-user.component.html'
 })
+
 export class FormUserComponent implements OnInit {
   user: User;
   id: number;
-
   error: string;
   showAlert: boolean = false;
+
   constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

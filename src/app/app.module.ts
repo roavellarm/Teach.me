@@ -22,13 +22,14 @@ import { FormCourseComponent } from './course/form-course/form-course.component'
 import { IndexCourseComponent } from './course/index-course/index-course.component';
 import { CourseService } from './course/course.service'
 
+import { FormCategoryComponent } from './category/form-category/form-category.component';
+import { IndexCategoryComponent } from './category/index-category/index-category.component';
+import { CategoryService } from './category/category.service'
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { HomeComponent } from './shared/home/home.component';
-import { FormCategoryComponent } from './category/form-category/form-category.component';
-import { IndexCategoryComponent } from './category/index-category/index-category.component';
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -84,7 +85,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [UserService, CourseService,{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [UserService, CourseService, CategoryService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 

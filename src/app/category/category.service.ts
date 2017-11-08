@@ -13,15 +13,15 @@ export class CategoryService {
   }
 
   get(_id: number) {
-    return this.categories.find(instructor => instructor.id == _id);
+    return this.categories.find(category => category.id == _id);
   }
 
-  post(_category: Category) {
+  add(_category: Category) {
     _category.id = this.autoIncrement++;
     this.categories.push(_category);
   }
 
-  put(_id: number, _category: Category) {
+  update(_id: number, _category: Category) {
     let i = this.categories.indexOf(this.get(_id), 0);
     this.categories[i] = _category;
   }
