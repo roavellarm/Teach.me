@@ -11,6 +11,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a routerLink='/index'>Início</a></li>
+                <li><a routerLink='/about'>Sobre</a></li>
+                <li><a routerLink='/contact'>Contato</a></li>
                 <li><a routerLink='/course'>Cursos</a></li>
                 <li *ngIf="userToken == 'admin'"><a routerLink='/category'>Gerenciar Categorias</a></li>
                 <li *ngIf="userToken == 'admin'"><a routerLink='/user'>Gerenciar Usuários</a></li>
