@@ -8,13 +8,15 @@ import { User } from '../user/user';
 @Injectable()
 export class CourseService {
   courses: Course[] = [];
-  users: User[] = [];
+  students: User[] = [];
+  instructors: User[] = [];
   categories: Category[] = [];
 
   autoIncrement: number = 1;
 
   constructor(private userService: UserService, private categoryService: CategoryService) { 
-    this.users = userService.getAll();
+    this.instructors = userService.getInstructors();
+    this.students = userService.getStudents();
     this.categories = categoryService.getAll();
   }
 

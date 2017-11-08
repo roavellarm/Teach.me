@@ -4,7 +4,8 @@ import { Category } from './../category/category';
 export class Course {
     id: number;
     title: string;
-    user: User;
+    instructor: User;
+    student: User;
     category: Category;
     description: string;
     module: boolean; // true = presencial / false = distancia

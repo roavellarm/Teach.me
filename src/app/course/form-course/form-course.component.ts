@@ -14,14 +14,14 @@ import { User } from './../../user/user';
 export class FormCourseComponent implements OnInit {
   course:Course;
   user: User;
-  users: User[]=[];
+  instructors: User[]=[];
   categories: Category[]=[];
   id:number;
   constructor(private service: CourseService, private userService: UserService, private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() 
   {
-    this.users = this.userService.getAll();
+    this.instructors = this.userService.getInstructors();
     this.categories = this.categoryService.getAll();
     this.id = this.activatedRoute.snapshot.params['id'];
 
@@ -38,7 +38,7 @@ export class FormCourseComponent implements OnInit {
   {
     if (isNaN(this.id)) {
       // this.user = localStorage.getItem('currentUser');
-      this.course.user = this.user;
+      this.course.instructor = this.user;
       this.service.add(this.course);
       this.course = new Course();
     } 
