@@ -15,7 +15,7 @@
                         <label>Título:</label> {{course.titulo | titlecase}}
                     </div>
                     <div class="col-md-offset-11">
-                        <a class="btn btn-info btn-sm" [routerLink]="['/course/', course.id]"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a *ngIf="course.instructor.email == currentUser" class="btn btn-info btn-sm" [routerLink]="['/course/', course.id]"><span class="glyphicon glyphicon-pencil"></span></a>
                     </div>
                 </div>
 
@@ -38,8 +38,8 @@
                 <label>Descrição:</label>
                 <p>{{course.descricao | uppercase}}</p>
                 <div class="panel-footer">
-                    <button class="btn btn-primary"> Participar </button>
-                    <button class="btn btn-secondary"> Sair </button>
+                    <button *ngIf="userToken != 'instructor'" class="btn btn-primary"> Participar </button>
+                    <button *ngIf="userToken != 'instructor'" class="btn btn-secondary"> Sair </button>
                 </div>
             </div>
         </div>
