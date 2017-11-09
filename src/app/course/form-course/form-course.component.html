@@ -3,7 +3,8 @@
         <legend>
             <h3>Cadastro de Curso</h3>
         </legend>
-        <div class="form-group">
+
+        <!-- <div class="form-group">
             <label for="select" id="instructors" class="col-lg-4 control-label">Instrutores</label>
             <div class="col-lg-4">
                 <select class="form-control" id="instructors" name="instructors" [(ngModel)]="course.instructor">
@@ -12,7 +13,8 @@
                     </option>
                 </select>
             </div>
-        </div>
+        </div> -->
+
         <div class="form-group">
             <label for="select" id="categories" class="col-lg-4 control-label">Categoria</label>
             <div class="col-lg-4">
@@ -35,6 +37,13 @@
             <label for="contact" class="col-lg-4 control-label">Contato</label>
             <div class="col-lg-4">
                 <input type="text" class="form-control" name="contact" id="contact" required placeholder="Telefone ou e-mail" [(ngModel)]="course.contact">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="location" class="col-lg-4 control-label">Localização</label>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" name="location" id="location" required placeholder="Localização" [(ngModel)]="course.location">
             </div>
         </div>
 

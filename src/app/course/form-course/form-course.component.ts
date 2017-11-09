@@ -20,6 +20,8 @@ export class FormCourseComponent implements OnInit {
   instructors: User[] = [];
   categories: Category[]=[];
 
+  currentUser: string;
+
   constructor(
     private service: CourseService, 
     private userService: UserService, 
@@ -32,8 +34,11 @@ export class FormCourseComponent implements OnInit {
   {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.categories = this.categoryService.getAll();
+
     this.students = this.userService.getStudents();
     this.instructors = this.userService.getInstructors();
+
+    this.currentUser = localStorage.getItem('currentUser');
 
     if (isNaN(this.id)){
       this.course = new Course();
@@ -47,8 +52,7 @@ export class FormCourseComponent implements OnInit {
   save() 
   {
     if (isNaN(this.id)) {
-      // this.course.instructor = localStorage.getItem('currentUser');
-      // this.course.instructor = this.user;
+      this.course.instructor = this.userService.getByEmail(this.currentUser);
       this.service.post(this.course);
       this.course = new Course();
     } 
@@ -57,10 +61,17 @@ export class FormCourseComponent implements OnInit {
       this.service.put(this.id, this.course);
     }
     this.router.navigate(['/course']);
+    this.refreshUsers();
   }
 
   cancel() {
     this.router.navigate(['/course']);
+    this.refreshUsers();
+  }
+
+  refreshUsers() {
+    this.students = this.userService.getStudents();
+    this.instructors = this.userService.getInstructors();
   }
 
 }
