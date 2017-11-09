@@ -32,6 +32,7 @@ export class FormCourseComponent implements OnInit {
   {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.categories = this.categoryService.getAll();
+
     this.students = this.userService.getStudents();
     this.instructors = this.userService.getInstructors();
 
@@ -57,10 +58,17 @@ export class FormCourseComponent implements OnInit {
       this.service.put(this.id, this.course);
     }
     this.router.navigate(['/course']);
+    this.refreshUsers();
   }
 
   cancel() {
     this.router.navigate(['/course']);
+    this.refreshUsers();
+  }
+
+  refreshUsers() {
+    this.students = this.userService.getStudents();
+    this.instructors = this.userService.getInstructors();
   }
 
 }
