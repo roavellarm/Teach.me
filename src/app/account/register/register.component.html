@@ -17,7 +17,7 @@
 </div> -->
 
 <form #userForm="ngForm" class="form-horizontal">
-  <fieldset>
+  <form>
     <legend><h3>Cadastro de Usuário</h3></legend>
 
     <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>    
@@ -26,9 +26,9 @@
       <label class="col-lg-4 control-label">Tipo de usuário</label>
       <div class="col-lg-4">
         <div>
-          <input type="radio" name="userType" id=userType value="true" checked="" [(ngModel)]="user.userType">
+          <input type="radio" name="userType" id=userType value="false" checked="" [(ngModel)]="user.userType">
           Instrutor &nbsp; &nbsp; 
-          <input type="radio" name="userType" id=userType value="false" [(ngModel)]="user.userType">
+          <input type="radio" name="userType" id=userType value="true" [(ngModel)]="user.userType">
           Aluno
         </div>
       </div>
@@ -63,5 +63,5 @@
         <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!userForm.form.valid">Salvar</button>
       </div>
     </div>
-  </fieldset>
+  </form>
 </form>

@@ -1,3 +1,4 @@
+import { getTestBed } from '@angular/core/testing';
 import { UserService } from './../../user/user.service';
 import { CategoryService } from './../../category/category.service';
 import { Category } from './../../category/category';
@@ -13,19 +14,26 @@ import { User } from './../../user/user';
 })
 export class FormCourseComponent implements OnInit {
   course:Course;
-  user: User;
-  users: User[] = [];
+  id:number;
+  // user: User;
+  students: User[] = [];
   instructors: User[] = [];
   categories: Category[]=[];
-  id:number;
-  constructor(private service: CourseService, private userService: UserService, private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  constructor(
+    private service: CourseService, 
+    private userService: UserService, 
+    private categoryService: CategoryService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() 
   {
-    this.users = this.userService.getAll();
-    this.categories = this.categoryService.getAll();
-    this.instructors = this.userService.getInstructors();
     this.id = this.activatedRoute.snapshot.params['id'];
+    this.categories = this.categoryService.getAll();
+    this.students = this.userService.getStudents();
+    this.instructors = this.userService.getInstructors();
 
     if (isNaN(this.id)){
       this.course = new Course();
@@ -39,8 +47,8 @@ export class FormCourseComponent implements OnInit {
   save() 
   {
     if (isNaN(this.id)) {
-      // this.user = localStorage.getItem('currentUser');
-      this.course.instructor = this.user;
+      // this.course.instructor = localStorage.getItem('currentUser');
+      // this.course.instructor = this.user;
       this.service.post(this.course);
       this.course = new Course();
     } 

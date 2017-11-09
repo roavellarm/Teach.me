@@ -16,7 +16,8 @@
         <tbody>
             <tr *ngFor="let user of users">
                 <td>{{user.id}}</td>
-                <td>{{ user.userType && 'Estudante' || 'Instrutor' }}</td>
+                <td>{{ user.userType }}</td>
+                <!-- <td>{{ user.userType && 'Aluno' || 'Instrutor' }}</td> -->
                 <td>{{user.firstName}}</td>
                 <td>{{user.phone}}</td>
                 <td>{{user.email}}</td>
@@ -31,6 +32,6 @@
 </div>
 
 <div style="text-align:center" *ngIf="users.length == 0">
-    <h3> Nenhum aluno cadastrado! </h3>   
+    <h3> Nenhum aluno cadastrado! </h3>
     <a class="btn btn-success btn-sm" routerLink='/user/new'>Cadastrar novo aluno</a>     
 </div>

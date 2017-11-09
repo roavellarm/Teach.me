@@ -14,7 +14,11 @@ export class FormCategoryComponent implements OnInit {
   error: string;
   showAlert: boolean = false;
 
-  constructor(private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private categoryService: CategoryService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -22,9 +26,7 @@ export class FormCategoryComponent implements OnInit {
     if (isNaN(this.id)){
       this.category = new Category();
     } else {
-      this.category = Object.assign({},
-        this.categoryService.get(this.id)
-      );
+      this.category = Object.assign({},this.categoryService.get(this.id));
     }
   }
 

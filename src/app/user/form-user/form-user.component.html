@@ -4,6 +4,24 @@
 
     <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>    
 
+    <div class="form-group">    
+      <label class="col-lg-4 control-label">Tipo de usuário</label>
+      <div class="col-lg-4">
+        <div>
+          <input type="radio" name="instructor" id=instructor value="false" [(ngModel)]="user.userType">
+          Instrutor &nbsp; &nbsp; 
+          <input type="radio" name="student" id=student value="true" [(ngModel)]="user.userType">
+          Aluno
+        </div>
+      </div>
+    </div>
+
+    <!-- <select class="form-control" id="instructors" name="instructors" [(ngModel)]="course.instructor">
+        <option *ngFor="let u of instructors" [ngValue]="u">
+            {{u.firstName}} {{u.lastName}}
+        </option>
+    </select> -->
+    
     <div class="form-group">
       <label for="firstName" class="col-lg-4 control-label">Nome</label>
       <div class="col-lg-4">
@@ -23,10 +41,9 @@
         </div>
     </div>    
     <div class="form-group">
-      <label for="select" class="col-lg-4 control-label">Sexo</label>
+      <label for="sex" class="col-lg-4 control-label">Sexo</label>
       <div class="col-lg-4">
-        <select class="form-control" id="select">
-            <option> Selecionar Gênero </option>
+        <select class="form-control" id="sex">
             <option value="Masculino">Masculino </option>
             <option value="Feminino">Femino</option>
             <option value="Outro">Outro</option>
@@ -68,3 +85,22 @@
     </div>
   </fieldset>
 </form>
+
+
+<!-- 
+    <select id="instructors" name="instructors" [(ngModel)]="course.instructor">
+        
+        </option>
+    </select> -->
+
+    <!-- <div id="userType" name="userType" [(ngModel)]="user.userType"> -->
+        <!-- <option *ngIf="let u of instructors" [ngValue]="u"> -->
+         <!-- <input type="text" required [(ngModel)]="${user.firstName}">{{${user.firstName}}}  </input> -->
+          <!-- {{u.firstName}} {{u.lastName}} -->
+        <!-- <input type="radio" name="instructor" id=instructor value="false" [(ngModel)]="user.userType">
+        Instrutor &nbsp; &nbsp; 
+        <input type="radio" name="student" id=student value="true" [(ngModel)]="user.userType">
+        Aluno
+      </div>
+    </div>
+  </div> -->
