@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { User } from './../user';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SexService } from "../../sex/sex.service";
+import { Sex } from "../../sex/sex";
 
 @Component({
   selector: 'app-form-user',
@@ -13,11 +15,18 @@ export class FormUserComponent implements OnInit {
   id: number;
   error: string;
   showAlert: boolean = false;
-
-  constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  sexes: Sex[]=[];
+  
+  constructor(
+    private userService: UserService, 
+    private service: SexService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
+    this.sexes = this.service.getAll();
     
     if (isNaN(this.id)){
       this.user = new User();

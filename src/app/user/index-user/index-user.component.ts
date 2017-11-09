@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { User } from './../user';
+import { SexService } from "../../sex/sex.service";
 
 @Component({
   selector: 'app-index-user',
@@ -10,7 +11,10 @@ export class IndexUserComponent implements OnInit {
   title = "Lista de usuários";
   users: User[]=[];
 
-  constructor(private service:UserService) { }
+  constructor(
+    private service:UserService,
+    private sexService:SexService
+  ) { }
 
   ngOnInit() {
     this.users = this.service.getAll();

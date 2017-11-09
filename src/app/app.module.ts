@@ -26,8 +26,6 @@ import { FormCategoryComponent } from './category/form-category/form-category.co
 import { IndexCategoryComponent } from './category/index-category/index-category.component';
 import { CategoryService } from './category/category.service'
 
-import { SexService } from './sex/sex.service'
-
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
@@ -35,6 +33,8 @@ import { HomeComponent } from './shared/home/home.component';
 import { MoedaPipe } from './moeda.pipe';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
+import { SexComponent } from './sex/sex.component';
+import { SexService } from './sex/sex.service'
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -86,6 +86,7 @@ const routes: Routes = [
     MoedaPipe,
     AboutComponent,
     ContactComponent,
+    SexComponent,
   ],
   
   imports: [
