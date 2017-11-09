@@ -20,6 +20,8 @@ export class FormCourseComponent implements OnInit {
   instructors: User[] = [];
   categories: Category[]=[];
 
+  currentUser: string;
+
   constructor(
     private service: CourseService, 
     private userService: UserService, 
@@ -36,6 +38,8 @@ export class FormCourseComponent implements OnInit {
     this.students = this.userService.getStudents();
     this.instructors = this.userService.getInstructors();
 
+    this.currentUser = localStorage.getItem('currentUser');
+
     if (isNaN(this.id)){
       this.course = new Course();
     }
@@ -48,8 +52,7 @@ export class FormCourseComponent implements OnInit {
   save() 
   {
     if (isNaN(this.id)) {
-      // this.course.instructor = localStorage.getItem('currentUser');
-      // this.course.instructor = this.user;
+      this.course.instructor = this.userService.getByEmail(this.currentUser);
       this.service.post(this.course);
       this.course = new Course();
     } 
