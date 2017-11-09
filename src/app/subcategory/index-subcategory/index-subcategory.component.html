@@ -1,0 +1,28 @@
+<h3>{{title}}</h3>
+
+<div class="table-responsive" *ngIf="categories.length > 0">
+    <table class="table table-striped table-hover">                
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th><a class="btn btn-success btn-sm" routerLink='/subcategory/new'>Nova Subcategoria</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let subcategory of categories">
+                <td>{{subcategory.id}}</td>
+                <td>{{subcategory.title}}</td>
+                <td>                                            
+                    <a class="btn btn-info btn-sm" [routerLink]="['/subcategory/', subcategory.id]"><span class="glyphicon glyphicon-pencil"></span></a> &nbsp;
+                    <a class="btn btn-danger btn-sm" routerLink='/subcategory' (click)="delete(subcategory)"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="text-align:center" *ngIf="categories.length == 0">
+    <h3> Nenhuma categoria cadastrada! </h3>   
+    <a class="btn btn-success btn-sm" routerLink='/subcategory/new'>Cadastrar nova Categoria</a>     
+</div>

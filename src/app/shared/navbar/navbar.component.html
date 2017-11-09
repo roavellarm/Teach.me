@@ -16,6 +16,7 @@
                 <li><a routerLink='/contact'>Contato</a></li>
                 <li><a routerLink='/course'>Cursos</a></li>
                 <li *ngIf="userToken == 'admin'"><a routerLink='/category'>Gerenciar Categorias</a></li>
+                <li *ngIf="userToken == 'admin'"><a routerLink='/subcategory'>Gerenciar SubCategorias</a></li>
                 <li *ngIf="userToken == 'admin'"><a routerLink='/user'>Gerenciar Usuários</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *ngIf="currentUser == ''">

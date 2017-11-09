@@ -34,7 +34,10 @@ import { MoedaPipe } from './moeda.pipe';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
 import { SexComponent } from './sex/sex.component';
-import { SexService } from './sex/sex.service'
+import { SexService } from './sex/sex.service';
+import { IndexSubcategoryComponent } from './subcategory/index-subcategory/index-subcategory.component';
+import { FormSubcategoryComponent } from './subcategory/form-subcategory/form-subcategory.component'
+import { SubcategoryService } from "./subcategory/subcategory.service";
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -58,6 +61,10 @@ const routes: Routes = [
   { path: 'category', component: IndexCategoryComponent },
   { path: 'category/:id', component: FormCategoryComponent },
   { path: 'category/new', component: FormCategoryComponent },
+
+  { path: 'subcategory', component: IndexSubcategoryComponent },
+  { path: 'subcategory/:id', component: FormSubcategoryComponent },
+  { path: 'subcategory/new', component: FormSubcategoryComponent },
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -87,6 +94,8 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     SexComponent,
+    IndexSubcategoryComponent,
+    FormSubcategoryComponent,
   ],
   
   imports: [
@@ -98,7 +107,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [UserService, CourseService, CategoryService, SexService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [UserService, CourseService, CategoryService, SubcategoryService, SexService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 
