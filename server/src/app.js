@@ -17,6 +17,10 @@ const app = express();
 const router = express.Router();
 
 
+// Carrega as rotas
+const indexRoute = require('./routes/index-route');
+
+
 // Conecta ao banco
 // mongoose.connect(config.connectionString);
 
@@ -35,6 +39,10 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
 });
+
+
+// Utiliza as definições de rotas
+app.use('/', indexRoute);
 
 module.exports = app;
 console.log('app exportado com sucesso!');
