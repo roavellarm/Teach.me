@@ -24,3 +24,4 @@ const userSchema = new Schema({
 });
 
 module.exports = mongoose.model('User', userSchema);
+console.log('Model do usuário exportado com sucesso!')
