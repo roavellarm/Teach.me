@@ -1,6 +1,6 @@
 'use strict';
 
-const repository = require('../repositories/user-repository');
+const repository = require('../repositories/user-repository.js');
 const md5 = require('md5');
 const authService = require('../services/auth-service');
 
@@ -32,12 +32,12 @@ exports.post = async(req, res, next) => {
 
 exports.authenticate = async(req, res, next) => {
     try {
-        const customer = await repository.authenticate({
+        const user = await repository.authenticate({
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY)
         });
 
-        if (!customer) {
+        if (!user) {
             res.status(404).send({
                 message: 'Usuário ou senha inválidos'
             });
@@ -45,17 +45,17 @@ exports.authenticate = async(req, res, next) => {
         }
 
         const token = await authService.generateToken({
-            id: customer._id,
-            email: customer.email,
-            firstName: customer.firstName,
-            roles: customer.roles
+            id: user._id,
+            email: user.email,
+            firstName: user.firstName,
+            roles: user.roles
         });
 
         res.status(201).send({
             token: token,
             data: {
-                email: customer.email,
-                firstName: customer.firstName
+                email: user.email,
+                firstName: user.firstName
             }
         });
     } catch (e) {
@@ -70,9 +70,9 @@ exports.refreshToken = async(req, res, next) => {
         const token = req.body.token || req.query.token || req.headers['x-access-token'];
         const data = await authService.decodeToken(token);
 
-        const customer = await repository.getById(data.id);
+        const user = await repository.getById(data.id);
 
-        if (!customer) {
+        if (!user) {
             res.status(404).send({
                 message: 'Usuário não encontrado'
             });
@@ -80,17 +80,17 @@ exports.refreshToken = async(req, res, next) => {
         }
 
         const tokenData = await authService.generateToken({
-            id: customer._id,
-            email: customer.email,
-            firstName: customer.firstName,
-            roles: customer.roles
+            id: user._id,
+            email: user.email,
+            firstName: user.firstName,
+            roles: user.roles
         });
 
         res.status(201).send({
             token: token,
             data: {
-                email: customer.email,
-                firstName: customer.firstName
+                email: user.email,
+                firstName: user.firstName
             }
         });
     } catch (e) {
@@ -99,6 +99,17 @@ exports.refreshToken = async(req, res, next) => {
         });
     }
 };
+
+exports.get = async(req, res, next) => {
+    try {
+        var data = await repository.get();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
 
 
 console.log('Controller do usuário exportado com sucesso!')

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const schema = new Schema({
     firstName: {
         type: String,
         required: true
@@ -16,6 +16,11 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    active: {
+        type: Boolean,
+        required: true,
+        default: true
+    },
     roles: [{
         type: String,
         required: true,
@@ -23,5 +28,5 @@ const userSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', schema);
 console.log('Model do usuário exportado com sucesso!')

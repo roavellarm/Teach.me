@@ -16,13 +16,15 @@ const app = express();
 // Define o construtor de rotas do express
 const router = express.Router();
 
+// Carrega as models
+const userModel = require('./models/user-model');
 
 // Carrega as rotas
 const indexRoute = require('./routes/index-route');
-
+const userRoute = require('./routes/user-route');
 
 // Conecta ao banco
-// mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString);
 
 // Configura o bodyParser para que casa requisição ao servidor passe por ele
 app.use(bodyParser.json({
@@ -43,6 +45,7 @@ app.use(function (req, res, next) {
 
 // Utiliza as definições de rotas
 app.use('/', indexRoute);
+app.use('/user', userRoute)
 
 module.exports = app;
 console.log('app exportado com sucesso!');

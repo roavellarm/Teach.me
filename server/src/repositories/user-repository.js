@@ -20,4 +20,11 @@ exports.getById = async(id) => {
     return res;
 }
 
+exports.get = async() => {
+    const res = await User.find({
+        active: true
+    }, 'title price slug');
+    return res;
+}
+
 console.log('Repositório do usuário exportado com sucesso!')
