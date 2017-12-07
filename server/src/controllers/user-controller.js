@@ -6,7 +6,6 @@ const authService = require('../services/auth-service');
 
 
 exports.post = async(req, res, next) => {
-
     try {
         await repository.create({
             firstName: req.body.firstName,

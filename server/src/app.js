@@ -10,6 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+// Importa as configurações
 const config = require('./config');
 // Inicializa o Express
 const app = express();
@@ -18,10 +19,12 @@ const router = express.Router();
 
 // Carrega as models
 const userModel = require('./models/user-model');
+const categoryModel = require('./models/category-model');
 
 // Carrega as rotas
 const indexRoute = require('./routes/index-route');
 const userRoute = require('./routes/user-route');
+const categoryRoute = require('./routes/category-route');
 
 // Conecta ao banco
 mongoose.connect(config.connectionString);
@@ -45,7 +48,8 @@ app.use(function (req, res, next) {
 
 // Utiliza as definições de rotas
 app.use('/', indexRoute);
-app.use('/user', userRoute)
+app.use('/user', userRoute);
+app.use('/category', categoryRoute);
 
 module.exports = app;
 console.log('app exportado com sucesso!');
