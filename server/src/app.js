@@ -20,11 +20,13 @@ const router = express.Router();
 // Carrega as models
 const userModel = require('./models/user-model');
 const categoryModel = require('./models/category-model');
+const courseModel = require('./models/course-model');
 
 // Carrega as rotas
 const indexRoute = require('./routes/index-route');
 const userRoute = require('./routes/user-route');
 const categoryRoute = require('./routes/category-route');
+const courseRoute = require('./routes/course-route');
 
 // Conecta ao banco
 mongoose.connect(config.connectionString);
@@ -50,6 +52,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRoute);
 app.use('/user', userRoute);
 app.use('/category', categoryRoute);
+app.use('/course', courseRoute);
 
 module.exports = app;
 console.log('app exportado com sucesso!');

@@ -1,27 +1,27 @@
 'use strict';
 const mongoose = require('mongoose');
-const Category = mongoose.model('Category');
+const Course = mongoose.model('Course');
 
 exports.get = async () => {
-    const res = await Category.find({
+    const res = await Course.find({
         // active: true
     }, 'title');
     return res;
 }
 
 exports.getById = async (id) => {
-    const res = await Category
+    const res = await Course
         .findById(id);
     return res;
 }
 
 exports.create = async (data) => {
-    var category = new Category(data);
-    await category.save();
+    var course = new Course(data);
+    await course.save();
 }
 
 exports.update = async (id, data) => {
-    await Category
+    await Course
         .findByIdAndUpdate(id, {
             $set: {
                 title: data.title,
@@ -30,6 +30,6 @@ exports.update = async (id, data) => {
 }
 
 exports.delete = async (id) => {
-    await Category
+    await Course
         .findOneAndRemove(id);
 }
