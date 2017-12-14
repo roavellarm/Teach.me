@@ -17,10 +17,15 @@ export class IndexUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.users = this.service.getAll();
+    this.service.getAll().subscribe(
+      userList => { this.users = userList; },
+      error => { console.log(error);}
+  );
   }
 
   delete(user:User){
-    this.service.delete(user);
+    this.service.delete(user).subscribe(
+      
+    );
   }
 }

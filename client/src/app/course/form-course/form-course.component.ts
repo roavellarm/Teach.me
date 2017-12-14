@@ -35,8 +35,8 @@ export class FormCourseComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.categories = this.categoryService.getAll();
 
-    this.students = this.userService.getStudents();
-    this.instructors = this.userService.getInstructors();
+    // this.students = this.userService.getStudents();
+    // this.instructors = this.userService.getInstructors();
 
     this.currentUser = localStorage.getItem('currentUser');
 
@@ -70,8 +70,8 @@ export class FormCourseComponent implements OnInit {
   }
 
   refreshUsers() {
-    this.students = this.userService.getStudents();
-    this.instructors = this.userService.getInstructors();
+    // this.students = this.userService.getStudents();
+    // this.instructors = this.userService.getInstructors();
   }
 
 }
