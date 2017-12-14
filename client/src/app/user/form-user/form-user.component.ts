@@ -11,7 +11,8 @@ import { Sex } from "../../sex/sex";
 })
 
 export class FormUserComponent implements OnInit {
-  user: User;
+  // user: User;
+  user: any;
   id: number;
   error: string;
   showAlert: boolean = false;

@@ -7,10 +7,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UserService {
-  users: User[] = [ ];
-  autoIncrement: number = 7;
+  users: User[] = [];
   uri = "http://localhost:3000/user";
-  
+
   constructor(private http: Http) { }
 
   // getStudents() {
@@ -31,38 +30,38 @@ export class UserService {
   get(id: number) {
     let url = this.uri + "/" + id;
     return this.http.get(url)
-    .map((res: Response) => res.json())
-    .catch((error: any) => Observable.throw(error));
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error));
   }
 
   getByEmail(_email: string) {
     return this.users.find(user => user.email == _email);
   }
 
-  post(user: User):Observable<User>{
+  post(user: User): Observable<User> {
     let bodyString = JSON.stringify(user);
-    let cabecalho = new Headers({"Content-Type":"application/json"});
-    let options = new RequestOptions({headers:cabecalho});
+    let cabecalho = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: cabecalho });
 
-    return this.http.post(this.uri,bodyString,options)
-      .map( (res:Response) => {} )
-      .catch( (error:any) => Observable.throw(error) );
+    return this.http.post(this.uri, bodyString, options)
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 
   put(id: number, user: User) {
     let bodyString = JSON.stringify(user);
-    let cabecalho = new Headers({"Content-Type":"application/json"});
-    let options = new RequestOptions({headers:cabecalho});
-    
-    return this.http.post(this.uri+"/"+id,bodyString,options)
-      .map( (res:Response) => {} )
-      .catch( (error:any) => Observable.throw(error) );
+    let cabecalho = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: cabecalho });
+
+    return this.http.post(this.uri + "/" + id, bodyString, options)
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 
-  delete(user: User):Observable<User>{
+  delete(user: User): Observable<User> {
     let url = this.uri + "/" + user.id;
     return this.http.delete(url)
-      .map( (res:Response) => {} )
-      .catch( (error:any) => Observable.throw(error) );
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 }
