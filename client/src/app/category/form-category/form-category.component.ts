@@ -11,8 +11,6 @@ import { Category } from '../category';
 export class FormCategoryComponent implements OnInit {
   category: any;
   id: number;
-  error: string;
-  showAlert: boolean = false;
 
   constructor(
     private categoryService: CategoryService, 
@@ -26,18 +24,25 @@ export class FormCategoryComponent implements OnInit {
     if (isNaN(this.id)){
       this.category = new Category();
     } else {
-      this.category = Object.assign({},this.categoryService.get(this.id));
+      this.categoryService.get(this.id).subscribe(
+        (cat: Category) => { this.category = cat; }
+      );
     }
   }
 
   save() {
     if (isNaN(this.id)) {
-      this.categoryService.post(this.category);
-      this.category = new Category();
+      this.categoryService.post(this.category).subscribe(
+        (cat: Category) => {
+          this.category = new Category();
+          this.router.navigate(['/category']);
+        }
+      );
     } else {
-      this.categoryService.put(this.id, this.category);
+      this.categoryService.put(this.category).subscribe(
+        (cat: Category) => { this.router.navigate(['/category']); }
+      );
     }
-    this.router.navigate(['/category']);
   }
 
   cancel() {
