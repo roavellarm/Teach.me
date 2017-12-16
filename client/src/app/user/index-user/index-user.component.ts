@@ -20,7 +20,7 @@ export class IndexUserComponent implements OnInit {
     this.service.getAll().subscribe(
       userList => { this.users = userList; },
       error => { console.log(error);}
-  );
+    );
   }
 
   delete(user:User){
