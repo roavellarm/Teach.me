@@ -32,10 +32,10 @@ export class FormCategoryComponent implements OnInit {
 
   save() {
     if (isNaN(this.id)) {
-      this.categoryService.add(this.category);
+      this.categoryService.post(this.category);
       this.category = new Category();
     } else {
-      this.categoryService.update(this.id, this.category);
+      this.categoryService.put(this.id, this.category);
     }
     this.router.navigate(['/category']);
   }

@@ -1,42 +1,55 @@
 import { Injectable } from '@angular/core';
 import { Category } from './category';
+import { Http,  Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/RX';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class CategoryService {
-  categories: Category[] = [
-    { id:0, title:"Reforço Escolar" },
-    { id:1, title:"Idioma" },
-    { id:2, title:"Música" },
-    { id:3, title:"Esportes" },
-    { id:4, title:"Artes e Lazer" },
-  ];
-  autoIncrement: number = 5;
+  categories: Category[] = [];
+  uri = "http://localhost:3000/category";
 
-  constructor() { }
+  constructor(private http: Http) { }
 
-  getAll() {
-    return this.categories;
+  getAll(): Observable<Category[]> {
+    return this.http.get(this.uri)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error));
   }
 
-  get(_id: number) {
-    return this.categories.find(category => category.id == _id);
+  get(id: number) {
+    let url = this.uri + "/" + id;
+    return this.http.get(url)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error));
   }
 
-  add(_category: Category) {
-    _category.id = this.autoIncrement++;
-    this.categories.push(_category);
+  post(category: Category): Observable<Category> {
+    let bodyString = JSON.stringify(category);
+    let cabecalho = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: cabecalho });
+    
+    return this.http.post(this.uri, bodyString, options)
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 
-  update(_id: number, _category: Category) {
-    let i = this.categories.indexOf(this.get(_id), 0);
-    this.categories[i] = _category;
+  put(id: number, category: Category) {
+    let bodyString = JSON.stringify(category);
+    let cabecalho = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: cabecalho });
+
+    return this.http.post(this.uri + "/" + id, bodyString, options)
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 
-  delete(_category: Category) {
-    let i = this.categories.indexOf(_category, 0);
-    if (i > -1) {
-      this.categories.splice(i, 1);
-    }
+  delete(category: Category) {
+    let url = this.uri + "/" + category.id;
+    return this.http.delete(url)
+      .map((res: Response) => { })
+      .catch((error: any) => Observable.throw(error));
   }
 
 }
