@@ -9,7 +9,7 @@ import { Category } from '../category';
 })
 
 export class FormCategoryComponent implements OnInit {
-  category: any;
+  category: Category;
   id: number;
 
   constructor(
