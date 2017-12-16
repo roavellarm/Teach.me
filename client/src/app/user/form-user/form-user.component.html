@@ -51,11 +51,11 @@
       </div>
     </div> -->
     <div class="form-group">
-      <label for="select" id="categories" class="col-lg-4 control-label">Sexo</label>
+      <label for="select" id="categories" class="col-lg-4 control-label">Gênero</label>
       <div class="col-lg-4">
-          <select class="form-control" id="sexes" name="sexes" [(ngModel)]="user.sex">
-              <option *ngFor="let sex of sexes" [ngValue]="sex">
-                  {{sex.title}}
+          <select class="form-control" id="genders" name="genders" [(ngModel)]="user.gender">
+              <option *ngFor="let gender of genders" [ngValue]="gender">
+                  {{gender.title}}
               </option>
           </select>
       </div>

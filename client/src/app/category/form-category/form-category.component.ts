@@ -25,7 +25,7 @@ export class FormCategoryComponent implements OnInit {
       this.category = new Category();
     } else {
       this.categoryService.get(this.id).subscribe(
-        (cat: Category) => { this.category = cat; }
+        (cat: Category) => { this.category = Object.assign({}, cat); }
       );
     }
   }

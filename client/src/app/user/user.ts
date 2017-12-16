@@ -1,4 +1,4 @@
-import { Sex } from './../sex/sex';
+import { Gender } from './../gender/gender';
 
 export class User {
     id: number;
@@ -17,8 +17,8 @@ export class User {
     // streetNumber: string;
     // streetComplement: string;
     // image: Blob;
-    // sex: Sex;
-    sex_id: number;
+    gender: Gender;
+    gender_id: number;
     
     // temporary
     adress: string; 

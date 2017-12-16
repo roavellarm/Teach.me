@@ -33,8 +33,8 @@ import { HomeComponent } from './shared/home/home.component';
 import { MoedaPipe } from './moeda.pipe';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
-import { SexComponent } from './sex/sex.component';
-import { SexService } from './sex/sex.service'
+import { GenderComponent } from './gender/gender.component';
+import { GenderService } from './gender/gender.service'
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -86,7 +86,7 @@ const routes: Routes = [
     MoedaPipe,
     AboutComponent,
     ContactComponent,
-    SexComponent,
+    GenderComponent,
   ],
   
   imports: [
@@ -98,7 +98,7 @@ const routes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [UserService, CourseService, CategoryService, SexService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [UserService, CourseService, CategoryService, GenderService, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 

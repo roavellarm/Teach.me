@@ -1,7 +1,7 @@
 <h3>{{title}}</h3>
 
 <div class="row" *ngIf="courses.length > 0">
-    <a *ngIf="!currentUser == ''" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
+    <a *ngIf="!currentUser == null" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
     <hr>
 
     <div class="col-md-12">
@@ -12,7 +12,7 @@
                         <label>Código:</label> {{course.id }}
                     </div>
                     <div class="col-md-3">
-                        <label>Título:</label> {{course.titulo | titlecase}}
+                        <label>Título:</label> {{course.title | titlecase}}
                     </div>
                     <div class="col-md-offset-11">
                         <a *ngIf="course.instructor.email == currentUser" class="btn btn-info btn-sm" [routerLink]="['/course/', course.id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -36,7 +36,7 @@
             </div>
             <div class="panel-footer">
                 <label>Descrição:</label>
-                <p>{{course.descricao | uppercase}}</p>
+                <p>{{course.description | uppercase}}</p>
                 <div class="panel-footer">
                     <button *ngIf="userToken != 'instructor'" class="btn btn-primary"> Participar </button>
                     <button *ngIf="userToken != 'instructor'" class="btn btn-secondary"> Sair </button>
@@ -49,5 +49,5 @@
 
 <div style="text-align:center" *ngIf="courses.length == 0">
     <h3> Nenhum curso cadastrado! </h3>
-    <a *ngIf="!currentUser == ''" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
+    <a *ngIf="!currentUser == null" class="btn btn-success btn-sm" routerLink='/course/new'>Cadastrar novo curso</a>
 </div>

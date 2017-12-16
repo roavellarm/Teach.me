@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { User } from './../user';
-import { SexService } from "../../sex/sex.service";
+import { GenderService } from "../../gender/gender.service";
 
 @Component({
   selector: 'app-index-user',
@@ -13,7 +13,7 @@ export class IndexUserComponent implements OnInit {
 
   constructor(
     private service:UserService,
-    private sexService:SexService
+    private genderService:GenderService
   ) { }
 
   ngOnInit() {

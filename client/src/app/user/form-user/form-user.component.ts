@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './../user.service';
 import { User } from './../user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SexService } from "../../sex/sex.service";
-import { Sex } from "../../sex/sex";
+import { GenderService } from "../../gender/gender.service";
+import { Gender } from "../../gender/gender";
 
 @Component({
   selector: 'app-form-user',
@@ -11,28 +11,29 @@ import { Sex } from "../../sex/sex";
 })
 
 export class FormUserComponent implements OnInit {
-  // user: User;
-  user: any;
+  user: User;
   id: number;
   error: string;
   showAlert: boolean = false;
-  sexes: Sex[]=[];
+  genders: Gender[]=[];
   
   constructor(
     private userService: UserService, 
-    private service: SexService, 
+    private genderService: GenderService, 
     private router: Router, 
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.sexes = this.service.getAll();
+    this.genders = this.genderService.getAll();
     
     if (isNaN(this.id)){
       this.user = new User();
     } else {
-      this.user = Object.assign({}, this.userService.get(this.id));
+      this.userService.get(this.id).subscribe(
+        (user: User) => { this.user = Object.assign({}, user); }
+      );
     }
   }
 
