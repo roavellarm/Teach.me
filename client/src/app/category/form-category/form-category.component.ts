@@ -9,7 +9,7 @@ import { Category } from '../category';
 })
 
 export class FormCategoryComponent implements OnInit {
-  category: Category;
+  category: any;
   id: number;
   error: string;
   showAlert: boolean = false;
