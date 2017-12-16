@@ -18,7 +18,7 @@ export class CategoryService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  get(id: number) {
+  get(id: number): Observable<Category> {
     let url = this.uri + "/" + id;
     return this.http.get(url)
       .map((res: Response) => res.json())
@@ -31,24 +31,25 @@ export class CategoryService {
     let options = new RequestOptions({ headers: cabecalho });
     
     return this.http.post(this.uri, bodyString, options)
-      .map((res: Response) => { })
+      .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
   }
 
-  put(id: number, category: Category) {
+  put(category: Category): Observable<Category> {
+    let url = this.uri + "/" + category.id;
     let bodyString = JSON.stringify(category);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: cabecalho });
 
-    return this.http.post(this.uri + "/" + id, bodyString, options)
-      .map((res: Response) => { })
+    return this.http.put(url, bodyString, options)
+      .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
   }
 
-  delete(category: Category) {
+  delete(category: Category): Observable<Category> {
     let url = this.uri + "/" + category.id;
     return this.http.delete(url)
-      .map((res: Response) => { })
+      .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
   }
 
