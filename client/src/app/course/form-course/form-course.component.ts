@@ -1,8 +1,8 @@
-import { getTestBed } from '@angular/core/testing';
+import { Course } from './../course';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../user/user.service';
 import { CategoryService } from './../../category/category.service';
 import { Category } from './../../category/category';
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from "../course";
 import { CourseService } from "../course.service";
@@ -13,17 +13,17 @@ import { User } from './../../user/user';
   templateUrl: './form-course.component.html'
 })
 export class FormCourseComponent implements OnInit {
-  course:Course;
-  id:number;
-  // user: User;
-  students: User[] = [];
-  instructors: User[] = [];
+  course: Course;
+  id: number;
   categories: Category[]=[];
+  users: User[] = [];
+  // students: User[] = [];
+  // instructors: User[] = [];
 
   currentUser: string;
 
   constructor(
-    private service: CourseService, 
+    private courseService: CourseService, 
     private userService: UserService, 
     private categoryService: CategoryService, 
     private router: Router, 
@@ -32,20 +32,20 @@ export class FormCourseComponent implements OnInit {
 
   ngOnInit() 
   {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    this.categories = this.categoryService.getAll();
-
-    // this.students = this.userService.getStudents();
-    // this.instructors = this.userService.getInstructors();
-
-    this.currentUser = localStorage.getItem('currentUser');
-
+    this.id = this.activatedRoute.snapshot.params['id']; // Clona o id da url
+    this.currentUser = localStorage.getItem('currentUser'); // Pega o usuário logado
+    this.categoryService.getAll().subscribe( // Carrega as categorias do banco na lista de categorias
+      (cat: Category[]) => { this.categories = cat; }
+    );
+    
     if (isNaN(this.id)){
       this.course = new Course();
     }
     else 
     {
-       this.course = Object.assign({}, this.service.get(this.id));
+      this.courseService.get(this.id).subscribe(
+        (course: Course) => { this.course = course; }
+      );
     }
   }
 
@@ -53,25 +53,34 @@ export class FormCourseComponent implements OnInit {
   {
     if (isNaN(this.id)) {
       this.course.instructor = this.userService.getByEmail(this.currentUser);
-      this.service.post(this.course);
-      this.course = new Course();
+      this.courseService.post(this.course).subscribe(
+        (cours: Course) => {
+          this.course = new Course();
+          this.router.navigate(['/course']);
+          // this.refreshUsers();
+        }
+      );
     } 
     else
     {
-      this.service.put(this.id, this.course);
+      this.courseService.put(this.course).subscribe(
+        (cours: Course) => { 
+          this.router.navigate(['/course']); 
+          // this.refreshUsers();
+        }
+      );
     }
-    this.router.navigate(['/course']);
-    this.refreshUsers();
   }
 
   cancel() {
     this.router.navigate(['/course']);
-    this.refreshUsers();
+    // this.refreshUsers();
   }
 
   refreshUsers() {
-    // this.students = this.userService.getStudents();
-    // this.instructors = this.userService.getInstructors();
+    this.userService.getAll().subscribe(
+      (users: User[]) => { this.users = users; }
+    );
   }
 
 }
