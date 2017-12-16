@@ -12,16 +12,6 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  getStudents() {
-    this.refreshUserList();
-    return this.users.filter(user => user.userType == true);
-  }
-
-  getInstructors() {
-    this.refreshUserList();
-    return this.users.filter(user => user.userType == false);
-  }
-
   getAll(): Observable<User[]> {
     return this.http.get(this.uri)
       .map((res: Response) => res.json())
@@ -35,11 +25,6 @@ export class UserService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  getByEmail(email: string) {
-    this.refreshUserList();
-    return this.users.find(user => user.email == email);
-  }
-
   post(user: User): Observable<User> {
     let bodyString = JSON.stringify(user);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
@@ -50,12 +35,13 @@ export class UserService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  put(id: number, user: User) {
+  put(user: User): Observable<User> {
+    let url = this.uri + "/" + user.id;
     let bodyString = JSON.stringify(user);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: cabecalho });
 
-    return this.http.post(this.uri + "/" + id, bodyString, options)
+    return this.http.post(url, bodyString, options)
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
   }
@@ -65,6 +51,21 @@ export class UserService {
     return this.http.delete(url)
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
+  }
+
+  getStudents() {
+    this.refreshUserList();
+    return this.users.filter(user => user.userType == true);
+  }
+
+  getInstructors() {
+    this.refreshUserList();
+    return this.users.filter(user => user.userType == false);
+  }
+
+  getByEmail(email: string) {
+    this.refreshUserList();
+    return this.users.find(user => user.email == email);
   }
 
   private refreshUserList(){

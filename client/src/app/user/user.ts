@@ -9,6 +9,7 @@ export class User {
     email: string;
     password: string;
     userType: boolean; // true = student; false = instructor
+    userTypeString: string; // true = student; false = instructor
     
     // city: string;
     // state: string;
@@ -22,4 +23,12 @@ export class User {
     
     // temporary
     adress: string; 
+
+    userTypeToString(){
+        if(this.userType){
+            return "estudante";
+        } else{
+            return "instrutor";
+        }
+    }
 }

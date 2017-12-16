@@ -16,17 +16,17 @@ export class IndexCategoryComponent implements OnInit {
     this.updateCategoryList();
   }
 
+  delete(category: Category) {
+    this.categoryService.delete(category).subscribe(
+      (cat: Category) => { this.updateCategoryList(); },
+      error => { console.log(error); }
+    );
+  }
+
   updateCategoryList() {
     this.categoryService.getAll().subscribe(
       (categoryList: Category[]) => { this.categories = categoryList; },
       error => { console.log(error); }
     );
   }
-
-  delete(category: Category) {
-    this.categoryService.delete(category).subscribe(
-      (cat: Category) => { this.updateCategoryList(); }
-    );
-  }
-
 }

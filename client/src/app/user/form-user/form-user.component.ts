@@ -40,29 +40,33 @@ export class FormUserComponent implements OnInit {
   save() {
     if (isNaN(this.id)) {
       if (this.emailVerify()) {
-        this.userService.post(this.user);
-        this.user = new User();
+        this.userService.post(this.user).subscribe(
+          (cat: User) => {
+            this.user = new User();
+            this.router.navigate(['/user']);
+          }
+        );
       } else {
         this.showAlert = true;
         this.error = "Email já cadastrado!";
       }
     } else {
-      this.userService.put(this.id, this.user);
-      this.router.navigate(['/user']);
-      
+      this.userService.put(this.user).subscribe(
+        (user: User) => {
+          this.router.navigate(['/user']); 
+        }
+      ); 
     }
-
-    if (this.emailVerify()) {
-      this.router.navigate(['/user']);
-    }
-    
+    // if (this.emailVerify()) {
+    //   this.router.navigate(['/user']);
+    // } 
   }
 
   cancel() {
     this.router.navigate(['/user']);
   }
 
-  emailVerify() {
+  private emailVerify() {
     if (this.userService.getByEmail(this.user.email) == undefined && this.userService.getByEmail(this.user.email) == undefined) {
       return true;
     } else {
