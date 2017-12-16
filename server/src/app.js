@@ -19,12 +19,14 @@ const router = express.Router();
 
 // Carrega as models
 const userModel = require('./models/user-model');
+const genderModel = require('./models/gender-model');
 const categoryModel = require('./models/category-model');
 const courseModel = require('./models/course-model');
 
 // Carrega as rotas
 const indexRoute = require('./routes/index-route');
 const userRoute = require('./routes/user-route');
+const genderRoute = require('./routes/gender-route');
 const categoryRoute = require('./routes/category-route');
 const courseRoute = require('./routes/course-route');
 
@@ -51,6 +53,7 @@ app.use(function (req, res, next) {
 // Utiliza as definições de rotas
 app.use('/', indexRoute);
 app.use('/user', userRoute);
+app.use('/gender', genderRoute);
 app.use('/category', categoryRoute);
 app.use('/course', courseRoute);
 
