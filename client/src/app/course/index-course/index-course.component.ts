@@ -13,16 +13,24 @@ export class IndexCourseComponent implements OnInit {
   currentUser: string;
   userToken: string;
 
-
-  constructor(private service: CourseService) { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit() {
-    this.courses = this.service.getAll();
+    this.updateCoursesList();
     this.currentUser = localStorage.getItem('currentUser');
     this.userToken = localStorage.getItem('userToken');
   }
-  delete(_course: Course) {
-    this.service.delete(_course);
+
+  delete(course: Course) {
+    this.courseService.delete(course).subscribe(
+      (cours: Course) => { this.updateCoursesList(); }
+    );
   }
 
+  updateCoursesList() {
+    this.courseService.getAll().subscribe(
+      (courseList: Course[]) => { this.courses = courseList; },
+      error => { console.log(error); }
+    );
+  }
 }
