@@ -12,14 +12,15 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  // getStudents() {
-  //   return this.getAll().filter(user => user.userType == true);
-  // }
+  getStudents() {
+    this.refreshUserList();
+    return this.users.filter(user => user.userType == true);
+  }
 
-  // getInstructors() {
-
-  //   return this.getAll().filter(user => user.userType == false);
-  // }
+  getInstructors() {
+    this.refreshUserList();
+    return this.users.filter(user => user.userType == false);
+  }
 
   getAll(): Observable<User[]> {
     return this.http.get(this.uri)
@@ -27,15 +28,16 @@ export class UserService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  get(id: number) {
+  get(id: number): Observable<User> {
     let url = this.uri + "/" + id;
     return this.http.get(url)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error));
   }
 
-  getByEmail(_email: string) {
-    return this.users.find(user => user.email == _email);
+  getByEmail(email: string) {
+    this.refreshUserList();
+    return this.users.find(user => user.email == email);
   }
 
   post(user: User): Observable<User> {
@@ -64,4 +66,12 @@ export class UserService {
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
   }
+
+  private refreshUserList(){
+    this.getAll().subscribe(
+      (users: User[]) => { this.users = users; },
+      error => { console.log(error); }
+    );
+  }
+
 }

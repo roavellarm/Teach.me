@@ -13,10 +13,10 @@ export class IndexCategoryComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(){
-    this.updateTable();
+    this.updateCategoryList();
   }
 
-  updateTable() {
+  updateCategoryList() {
     this.categoryService.getAll().subscribe(
       (categoryList: Category[]) => { this.categories = categoryList; },
       error => { console.log(error); }
@@ -25,7 +25,7 @@ export class IndexCategoryComponent implements OnInit {
 
   delete(category: Category) {
     this.categoryService.delete(category).subscribe(
-      (cat: Category) => { this.updateTable(); }
+      (cat: Category) => { this.updateCategoryList(); }
     );
   }
 
