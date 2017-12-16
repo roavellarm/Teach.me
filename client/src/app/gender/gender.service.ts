@@ -1,40 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Gender } from './gender';
+import { Http,  Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/RX';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class GenderService {
   genders: Gender[] = [
-    { id:0, title:"Masculino" },
-    { id:1, title:"Feminino" },
-    { id:2, title:"Outro" }
+    // { id:0, title:"Masculino" },
+    // { id:1, title:"Feminino" },
+    // { id:2, title:"Outro" }
   ];
-  autoIncrement: number = 3;
+  uri = "http://localhost:3000/gender";
+  
+  constructor(private http: Http) {}
 
-  constructor() { }
-
-  getAll() {
-    return this.genders;
+  getAll(): Observable<Gender[]> {
+    return this.http.get(this.uri)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error));
   }
 
-  get(_id: number) {
-    return this.genders.find(gender => gender.id == _id);
+  get(id: number): Observable<Gender> {
+    let url = this.uri + "/" + id;
+    return this.http.get(url)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error));
   }
 
-  post(gender: Gender) {
-    gender.id = this.autoIncrement++;
-    this.genders.push(gender);    
+  post(gender: Gender): Observable<Gender> {
+    let bodyString = JSON.stringify(gender);
+    let header = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: header });
+    return this.http.post(this.uri, bodyString, options)
+      .map((res: Response) => {})
+      .catch((error: any) => Observable.throw(error));
   }
 
-  put(_id: number, gender: Gender) {
-    let i = this.genders.indexOf(this.get(_id), 0);
-    this.genders[i] = gender;
+  put(gender: Gender): Observable<Gender> {
+    let url = this.uri + "/" + gender.id;
+    let bodyString = JSON.stringify(gender);
+    let header = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: header });
+    return this.http.put(url, bodyString, options)
+      .map((res: Response) => {})
+      .catch((error: any) => Observable.throw(error));
   }
 
-  delete(gender: Gender) {
-    let i = this.genders.indexOf(gender, 0);
-    if (i > -1) {
-      this.genders.splice(i, 1);
-    }
+  delete(gender: Gender): Observable<Gender> {
+    let url = this.uri + "/" + gender.id;
+    return this.http.delete(url)
+      .map((res: Response) => {})
+      .catch((error: any) => Observable.throw(error));
   }
 
 }

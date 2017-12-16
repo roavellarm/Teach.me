@@ -23,29 +23,31 @@ export class GenderComponent implements OnInit {
 
     if (isNaN(this.id)){
       this.gender = new Gender();
-    }
-    else 
-    {
-       this.gender = Object.assign({}, this.genderService.get(this.id));
+    } else {
+      this.genderService.get(this.id).subscribe(
+        (gend: Gender) => { this.gender = Object.assign({}, gend); }
+      );
     }
   }
 
   save() 
   {
     if (isNaN(this.id)) {
-      this.genderService.post(this.gender);
-      this.gender = new Gender();
-    } 
-    else
-    {
-      this.genderService.put(this.id, this.gender);
+      this.genderService.post(this.gender).subscribe(
+        (gend: Gender) => {
+          this.gender = new Gender();
+          this.router.navigate(['/user']);
+        }
+      );
+    } else {
+      this.genderService.put(this.gender).subscribe(
+        (gend: Gender) => { this.router.navigate(['/user']); }
+      );
     }
-    this.router.navigate(['/user']);
   }
 
   cancel() {
     this.router.navigate(['/user']);
   }
-
-
+  
 }
