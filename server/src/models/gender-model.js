@@ -10,5 +10,5 @@ const schema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Course', schema);
+module.exports = mongoose.model('Gender', schema);
 console.log('Model de gênero exportado com sucesso!')

@@ -2,9 +2,33 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
+exports.get = async() => {
+    const res = await User.find({
+        // active: true
+    });
+    return res;
+}
+
 exports.create = async(data) => {
-    var customer = new User(data);
-    await customer.save();
+    var user = new User(data);
+    await user.save();
+}
+
+exports.update = async (id, data) => {
+    await User
+        .findByIdAndUpdate(id, {
+            $set: {
+                firstName: data.firstName,
+                lastName: data.lastName,
+                birthday: data.birthday,
+                phone: data.phone,
+                email: data.email,
+                userType: data.userType,
+                userTypeString: data.userTypeString,
+                gender_id: data.gender_id,
+                adress: data.adress,
+            }
+        });
 }
 
 exports.authenticate = async(data) => {
@@ -17,13 +41,6 @@ exports.authenticate = async(data) => {
 
 exports.getById = async(id) => {
     const res = await User.findById(id);
-    return res;
-}
-
-exports.get = async() => {
-    const res = await User.find({
-        active: true
-    }, 'title price slug');
     return res;
 }
 

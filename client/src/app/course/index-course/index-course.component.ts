@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class IndexCourseComponent implements OnInit {
   title = "Lista de Cursos";
-  courses: Course[] = [];
+  courses: any[] = [];
   currentUser: string;
   userToken: string;
 
@@ -29,7 +29,9 @@ export class IndexCourseComponent implements OnInit {
 
   updateCoursesList() {
     this.courseService.getAll().subscribe(
-      (courseList: Course[]) => { this.courses = courseList; },
+      (courseList: Course[]) => { this.courses = courseList; 
+        // alert(this.courses[1].title);
+      },
       error => { console.log(error); }
     );
   }

@@ -4,6 +4,29 @@ const repository = require('../repositories/user-repository.js');
 const md5 = require('md5');
 const authService = require('../services/auth-service');
 
+exports.get = async(req, res, next) => {
+    try {
+        var data = await repository.get();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
+exports.put = async(req, res, next) => {
+    try {
+        await repository.update(req.params.id, req.body);
+        res.status(200).send({
+            message: 'Usuário atualizado com sucesso!'
+        });
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+};
 
 exports.post = async(req, res, next) => {
     try {
@@ -15,20 +38,22 @@ exports.post = async(req, res, next) => {
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY),
             userType: req.body.userType,
+            userTypeString: req.body.userTypeString,
             gender_id: req.body.gender_id,
             adress: req.body.adress
             // roles: ["user"]
         });
 
-        emailService.send(
-            req.body.email,
-            'Bem vindo ao Teach.me',
-            global.EMAIL_TMPL.replace('{0}', req.body.firstName));
+        // emailService.send(
+        //     req.body.email,
+        //     'Bem vindo ao Teach.me',
+        //     global.EMAIL_TMPL.replace('{0}', req.body.firstName));
 
         res.status(201).send({
             message: 'Usuário cadastrado com sucesso!'
         });
     } catch (e) {
+        console.log(e);
         res.status(500).send({
             message: 'Falha ao processar sua requisição'
         });
@@ -106,17 +131,5 @@ exports.refreshToken = async(req, res, next) => {
         });
     }
 };
-
-exports.get = async(req, res, next) => {
-    try {
-        var data = await repository.get();
-        res.status(200).send(data);
-    } catch (e) {
-        res.status(500).send({
-            message: 'Falha ao processar sua requisição'
-        });
-    }
-}
-
 
 console.log('Controller do usuário exportado com sucesso!')

@@ -26,7 +26,11 @@ export class FormUserComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.genders = this.genderService.getAll();
+    // this.genders = this.genderService.getAll();
+    this.genderService.getAll().subscribe(
+      genderList => { this.genders = genderList; },
+      error => { console.log(error);}
+    );
     
     if (isNaN(this.id)){
       this.user = new User();

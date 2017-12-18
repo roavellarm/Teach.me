@@ -40,7 +40,7 @@ export class CourseService {
   }
 
   put(course: Course): Observable<Course> {
-    let url = this.uri + "/" + course.id;
+    let url = this.uri + "/" + course._id;
     let bodyString = JSON.stringify(course);
     let header = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: header });
@@ -51,7 +51,7 @@ export class CourseService {
   }
 
   delete(course: Course): Observable<Course> {
-    let url = this.uri + "/" + course.id;
+    let url = this.uri + "/" + course._id;
     return this.http.delete(url)
       .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
