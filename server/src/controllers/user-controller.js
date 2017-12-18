@@ -43,8 +43,9 @@ exports.post = async(req, res, next) => {
             adress: req.body.adress
             // roles: ["user"]
         });
-
-        // emailService.send(
+        
+        // BUGS! AINDA NAO FOI IMPLEMENTADO!!!!!!!!!!!!
+        // emailService.send(   
         //     req.body.email,
         //     'Bem vindo ao Teach.me',
         //     global.EMAIL_TMPL.replace('{0}', req.body.firstName));
@@ -54,6 +55,30 @@ exports.post = async(req, res, next) => {
         });
     } catch (e) {
         console.log(e);
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+};
+
+exports.getById = async(req, res, next) => {
+    try {
+        var data = await repository.getById(req.params.id);
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({
+            message: 'Falha ao processar sua requisição'
+        });
+    }
+}
+
+exports.delete = async(req, res, next) => {
+    try {
+        await repository.delete(req.body.id)
+        res.status(200).send({
+            message: 'Usuário removido com sucesso!'
+        });
+    } catch (e) {
         res.status(500).send({
             message: 'Falha ao processar sua requisição'
         });

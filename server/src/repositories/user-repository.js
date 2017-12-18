@@ -31,6 +31,11 @@ exports.update = async (id, data) => {
         });
 }
 
+exports.delete = async (id) => {
+    await User
+        .findOneAndRemove(id);
+}
+
 exports.authenticate = async(data) => {
     const res = await User.findOne({
         email: data.email,

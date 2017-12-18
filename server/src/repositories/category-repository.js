@@ -30,6 +30,6 @@ exports.update = async (id, data) => {
 }
 
 exports.delete = async (id) => {
-    await Category
-        .findOneAndRemove(id);
+    await Category.findByIdAndRemove(id);
+        // .findOneAndRemove(id);
 }
