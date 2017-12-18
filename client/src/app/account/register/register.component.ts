@@ -20,14 +20,17 @@ export class RegisterComponent implements OnInit {
   }
 
   save() {
-    if (this.emailVerify()) {
-      this.service.post(this.user);
-      this.user = new User();
-      this.router.navigate(['/user']);      
-    } else {
-      this.showAlert = true;
-      this.error = "Email já cadastrado!";
-    }
+      if (this.emailVerify()) {
+        this.service.post(this.user).subscribe(
+          (cat: User) => {
+            this.user = new User();
+            this.router.navigate(['/user']);
+          }
+        );
+      } else {
+        this.showAlert = true;
+        this.error = "Email já cadastrado!";
+      }
   }
 
   cancel() {

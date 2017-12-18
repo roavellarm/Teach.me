@@ -1,7 +1,7 @@
 'use strict';
 
 const repository = require('../repositories/user-repository.js');
-const md5 = require('md5');
+// const md5 = require('md5');
 const authService = require('../services/auth-service');
 
 exports.get = async(req, res, next) => {
@@ -36,19 +36,14 @@ exports.post = async(req, res, next) => {
             birthday: req.body.birthday,
             phone: req.body.phone,
             email: req.body.email,
-            password: md5(req.body.password + global.SALT_KEY),
+            // password: md5(req.body.password + global.SALT_KEY),
+            password: req.body.password,
             userType: req.body.userType,
             userTypeString: req.body.userTypeString,
             gender_id: req.body.gender_id,
             adress: req.body.adress
             // roles: ["user"]
         });
-        
-        // BUGS! AINDA NAO FOI IMPLEMENTADO!!!!!!!!!!!!
-        // emailService.send(   
-        //     req.body.email,
-        //     'Bem vindo ao Teach.me',
-        //     global.EMAIL_TMPL.replace('{0}', req.body.firstName));
 
         res.status(201).send({
             message: 'Usuário cadastrado com sucesso!'
