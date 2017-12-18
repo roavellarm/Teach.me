@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from "../course";
 import { CourseService } from "../course.service";
+import { UserService } from "../../user/user.service";
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -10,10 +11,14 @@ import { DatePipe } from '@angular/common';
 export class IndexCourseComponent implements OnInit {
   title = "Lista de Cursos";
   courses: any[] = [];
+  users: any[] = [];
   currentUser: string;
   userToken: string;
 
-  constructor(private courseService: CourseService) { }
+  constructor(
+    private courseService: CourseService, 
+    private userService: UserService, 
+  ) { }
 
   ngOnInit() {
     this.updateCoursesList();
@@ -35,4 +40,12 @@ export class IndexCourseComponent implements OnInit {
       error => { console.log(error); }
     );
   }
+
+  updateUserList() {
+    this.userService.getAll().subscribe(
+      userList => { this.users = userList; },
+      error => { console.log(error);}
+    );
+  }
+
 }

@@ -30,7 +30,18 @@ exports.post = async(req, res, next) => {
 
     try {
         await repository.create({
-            title: req.body.title
+            title: req.body.title,
+            // instructor: req.body.instructor,
+            // student: req.body.student,
+            // category: req.body.category,
+            instructor_id: req.body.instructor_id,
+            student_id: req.body.student_id,
+            category_id: req.body.category_id,
+            location: req.body.location,
+            contact: req.body.contact,
+            description: req.body.description,
+            model: req.body.model,
+            price: req.body.price
         });
         res.status(201).send({
             message: 'Curso cadastrado com sucesso!'

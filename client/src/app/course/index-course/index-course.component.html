@@ -12,9 +12,7 @@
                         <label>Código:</label> {{course._id }}
                     </div>
                     <div class="col-md-3">
-                        <label>Título:</label>
-                        <!-- {{ course.title == "" && "cheio"||"vazio"}} -->
-                        {{ course.title}}
+                        <label>Título:</label> {{ course.title}}
                     </div>
                     <!-- <div class="col-md-offset-11">
                         <a *ngIf="course.instructor.email == currentUser" class="btn btn-info btn-sm" [routerLink]="['/course/', course._id]"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -23,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <label>Instrutor:</label> {{ course.instructor.firstName }} {{ course.instructor.lastName }}
+                        <!-- <label>Instrutor:</label> {{ course.instructor.firstName }} {{ course.instructor.lastName }} -->
                     </div>
                     <div class="col-md-3">
                         <label>Contato:</label> {{ course.contact }}
@@ -44,6 +42,7 @@
                     <button *ngIf="userToken != 'instructor'" class="btn btn-secondary"> Sair </button>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

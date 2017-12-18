@@ -5,7 +5,7 @@ const Course = mongoose.model('Course');
 exports.get = async () => {
     const res = await Course.find({
         // active: true
-    }, 'title');
+    });
     return res;
 }
 
