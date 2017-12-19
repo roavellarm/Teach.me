@@ -12,7 +12,7 @@ import { Gender } from "../../gender/gender";
 
 export class FormUserComponent implements OnInit {
   user: User;
-  id: number;
+  id: any;
   error: string;
   showAlert: boolean = false;
   genders: Gender[]=[];
@@ -32,7 +32,7 @@ export class FormUserComponent implements OnInit {
       error => { console.log(error);}
     );
     
-    if (isNaN(this.id)){
+    if (this.id == ""){
       this.user = new User();
     } else {
       this.userService.get(this.id).subscribe(
@@ -42,7 +42,7 @@ export class FormUserComponent implements OnInit {
   }
 
   save() {
-    if (isNaN(this.id)) {
+    if (this.id == "") {
       if (this.emailVerify()) {
         this.userService.post(this.user).subscribe(
           (cat: User) => {

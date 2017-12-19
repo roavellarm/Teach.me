@@ -1,7 +1,7 @@
 import { Gender } from './../gender/gender';
 
 export class User {
-    id: number;
+    _id: any;
     firstName: string;
     lastName: string;
     birthDate: Date;

@@ -20,7 +20,7 @@ export class IndexUserComponent implements OnInit {
     this.updateUserList();
   }
 
-  delete(user:User){
+  delete(user: User){
     this.service.delete(user).subscribe(
       (user2: User) => { this.updateUserList(); },
       error => { console.log(error); } 

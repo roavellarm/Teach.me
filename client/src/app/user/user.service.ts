@@ -18,7 +18,7 @@ export class UserService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  get(id: number): Observable<User> {
+  get(id: any): Observable<User> {
     let url = this.uri + "/" + id;
     return this.http.get(url)
       .map((res: Response) => res.json())
@@ -36,18 +36,18 @@ export class UserService {
   }
 
   put(user: User): Observable<User> {
-    let url = this.uri + "/" + user.id;
+    let url = this.uri + "/" + user._id;
     let bodyString = JSON.stringify(user);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: cabecalho });
 
-    return this.http.post(url, bodyString, options)
+    return this.http.put(url, bodyString, options)
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
   }
 
   delete(user: User): Observable<User> {
-    let url = this.uri + "/" + user.id;
+    let url = this.uri + "/" + user._id;
     return this.http.delete(url)
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
