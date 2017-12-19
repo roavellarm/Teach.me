@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './account/register/register.component';
 import { LoginComponent } from './account/login/login.component';
 
+import { ProfileUserComponent } from './user/profile/profile-user.component';
 import { IndexUserComponent } from './user/index-user/index-user.component';
 import { FormUserComponent } from './user/form-user/form-user.component';
 import { UserService } from './user/user.service';
@@ -44,7 +45,7 @@ const routes: Routes = [
   { path: 'index', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-
+  { path: 'profile/:id', component: ProfileUserComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -89,6 +90,7 @@ const routes: Routes = [
 
     FormUserComponent,
     IndexUserComponent,
+    ProfileUserComponent,
 
     FormCategoryComponent,
     IndexCategoryComponent,

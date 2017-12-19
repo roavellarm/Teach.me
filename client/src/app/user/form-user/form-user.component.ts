@@ -34,7 +34,8 @@ export class FormUserComponent implements OnInit {
       this.user = new User();
     } else {
       this.userService.get(this._id).subscribe(
-        (user: User) => { this.user = Object.assign({}, user); }
+        (user: User) => { this.user = user; }
+        // (user: User) => { this.user = Object.assign({}, user); }
       );
     }
   }

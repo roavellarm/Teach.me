@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   save() {
       // if (this.emailVerify()) {
         this.service.post(this.user).subscribe(
-          (cat: User) => {
+          (user: User) => {
             this.user = new User();
             this.router.navigate(['/user']);
           }

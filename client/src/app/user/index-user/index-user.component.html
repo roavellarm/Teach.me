@@ -21,7 +21,11 @@
                 <td>{{(user.userType && 'Aluno') || ('Instrutor')}}</td>
                 <!-- <td>{{ user.userType && 'Aluno' || 'Instrutor' }}</td> -->
                 <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{user.gender.title}}</td>
+                <td>
+                    <div *ngIf="user.gender != null">
+                        {{user.gender.title}}
+                    </div>
+                </td>
                 <td>{{user.phone}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.birthDate | date:"dd/MM/yyyy" }}</td>

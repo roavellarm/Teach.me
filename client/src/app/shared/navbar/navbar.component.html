@@ -23,7 +23,7 @@
                     <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right" *ngIf="currentUser != ''">
-                        <li><a routerLink="/profile"><span class="glyphicon glyphicon-log-in"></span> Bem vindo  <span>{{currentUser}}</span></a></li>
+                        <li><a [routerLink]="['/profile/', currentUser]"><span class="glyphicon glyphicon-log-in"></span> Bem vindo  <span>{{currentUser}}</span></a></li>
                         <li><a href="/index" (click)="loggout()"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>
         </div>
