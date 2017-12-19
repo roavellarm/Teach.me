@@ -4,7 +4,7 @@
 
     <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>    
 
-    <!-- <div class="form-group">    
+    <div class="form-group">    
       <label class="col-lg-4 control-label">Tipo de usuário</label>
       <div class="col-lg-4">
         <div>
@@ -14,7 +14,7 @@
           Aluno
         </div>
       </div>
-    </div> -->
+    </div>
 
     <!-- <select class="form-control" id="instructors" name="instructors" [(ngModel)]="course.instructor">
         <option *ngFor="let u of instructors" [ngValue]="u">
@@ -28,32 +28,23 @@
         <input type="text" class="form-control" name="firstName" id="firstName" required placeholder="Nome" [(ngModel)]="user.firstName">
       </div>
     </div>
-    <!-- <div class="form-group">
+    <div class="form-group">
         <label for="lastName" class="col-lg-4 control-label">Sobrenome</label>
         <div class="col-lg-4">
             <input type="text" class="form-control" name="lastName" id="lastName" required placeholder="Sobrenome" [(ngModel)]="user.lastName">
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="birthDate" class="col-lg-4 control-label">Nascimento</label>
         <div class="col-lg-4">
             <input type="date" class="form-control" name="birthDate" id="birthDate" required [(ngModel)]="user.birthDate">
         </div>
     </div>     -->
-<!--     <div class="form-group">
-      <label for="sex" class="col-lg-4 control-label">Sexo</label>
-      <div class="col-lg-4">
-        <select class="form-control" id="sex">
-            <option value="Masculino">Masculino </option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
-        </select>
-      </div>
-    </div> -->
+
     <!-- <div class="form-group">
-      <label for="select" id="categories" class="col-lg-4 control-label">Gênero</label>
+      <label for="select" id="gender" class="col-lg-4 control-label">Gênero</label>
       <div class="col-lg-4">
-          <select class="form-control" id="genders" name="genders" [(ngModel)]="user.gender">
+          <select class="form-control" id="gender" name="gender" [(ngModel)]="user.gender">
               <option *ngFor="let gender of genders" [ngValue]="gender">
                   {{gender.title}}
               </option>
@@ -72,7 +63,7 @@
       <div class="col-lg-4">
         <input type="password" class="form-control" name="password" required id="password" placeholder="Senha" [(ngModel)]="user.password">
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group">
         <label for="phone" class="col-lg-4 control-label">Telefone</label>
@@ -85,7 +76,7 @@
         <div class="col-lg-4">
             <textarea class="form-control" rows="3" name="adress" id="adress" required placeholder="Endereço" [(ngModel)]="user.adress"></textarea>
         </div>
-    </div> -->
+    </div>
     <div class="form-group">
       <div class="col-lg-4 col-lg-offset-4">
         <button type="reset" class="btn btn-default" (click)="cancel()">Cancelar</button>

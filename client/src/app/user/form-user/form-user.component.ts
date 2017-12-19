@@ -12,7 +12,7 @@ import { Gender } from "../../gender/gender";
 
 export class FormUserComponent implements OnInit {
   user: User;
-  id: any;
+  _id: any;
   error: string;
   showAlert: boolean = false;
   genders: Gender[]=[];
@@ -25,35 +25,33 @@ export class FormUserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.params['id'];
-    // this.genders = this.genderService.getAll();
+    this._id = this.activatedRoute.snapshot.params['id'];
     this.genderService.getAll().subscribe(
-      genderList => { this.genders = genderList; },
-      error => { console.log(error);}
+      genderList => { this.genders = genderList; }
     );
     
-    if (this.id == ""){
+    if (this._id == "new"){
       this.user = new User();
     } else {
-      this.userService.get(this.id).subscribe(
+      this.userService.get(this._id).subscribe(
         (user: User) => { this.user = Object.assign({}, user); }
       );
     }
   }
 
   save() {
-    if (this.id == "") {
-      if (this.emailVerify()) {
+    if (this._id == "new") {
+      // if (this.emailVerify()) {
         this.userService.post(this.user).subscribe(
-          (cat: User) => {
+          (user: User) => {
             this.user = new User();
             this.router.navigate(['/user']);
           }
         );
-      } else {
-        this.showAlert = true;
-        this.error = "Email já cadastrado!";
-      }
+      // } else {
+      //   this.showAlert = true;
+      //   this.error = "Email já cadastrado!";
+      // }
     } else {
       this.userService.put(this.user).subscribe(
         (user: User) => {
@@ -70,11 +68,11 @@ export class FormUserComponent implements OnInit {
     this.router.navigate(['/user']);
   }
 
-  private emailVerify() {
-    if (this.userService.getByEmail(this.user.email) == undefined && this.userService.getByEmail(this.user.email) == undefined) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // private emailVerify() {
+  //   if (this.userService.getByEmail(this.user.email) == undefined && this.userService.getByEmail(this.user.email) == undefined) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

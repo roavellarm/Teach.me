@@ -29,7 +29,6 @@ export class UserService {
     let bodyString = JSON.stringify(user);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: cabecalho });
-
     return this.http.post(this.uri, bodyString, options)
       .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
@@ -40,9 +39,8 @@ export class UserService {
     let bodyString = JSON.stringify(user);
     let cabecalho = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: cabecalho });
-
     return this.http.put(url, bodyString, options)
-      .map((res: Response) => { })
+      .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
   }
 

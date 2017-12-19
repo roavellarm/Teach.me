@@ -26,6 +26,10 @@ import { FormCategoryComponent } from './category/form-category/form-category.co
 import { IndexCategoryComponent } from './category/index-category/index-category.component';
 import { CategoryService } from './category/category.service'
 
+import { FormGenderComponent } from './gender/form-gender/form-gender.component';
+import { IndexGenderComponent } from './gender/index-gender/index-gender.component';
+import { GenderService } from './gender/gender.service';
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
@@ -33,8 +37,6 @@ import { HomeComponent } from './shared/home/home.component';
 import { MoedaPipe } from './moeda.pipe';
 import { AboutComponent } from './shared/about/about.component';
 import { ContactComponent } from './shared/contact/contact.component';
-import { GenderComponent } from './gender/gender.component';
-import { GenderService } from './gender/gender.service'
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -59,6 +61,10 @@ const routes: Routes = [
   { path: 'category/:id', component: FormCategoryComponent },
   { path: 'category/new', component: FormCategoryComponent },
 
+  { path: 'gender', component: IndexGenderComponent },
+  { path: 'gender/:id', component: FormGenderComponent },
+  { path: 'gender/new', component: FormGenderComponent },
+
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -66,11 +72,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    MoedaPipe,
 
     NavbarComponent,
     FooterComponent,
     PageNotFoundComponent,
     HomeComponent,
+    AboutComponent,
+    ContactComponent,
 
     RegisterComponent,
     LoginComponent,
@@ -78,15 +87,14 @@ const routes: Routes = [
     FormCourseComponent,
     IndexCourseComponent,
 
-    IndexUserComponent,
     FormUserComponent,
+    IndexUserComponent,
 
     FormCategoryComponent,
     IndexCategoryComponent,
-    MoedaPipe,
-    AboutComponent,
-    ContactComponent,
-    GenderComponent,
+    
+    FormGenderComponent,
+    IndexGenderComponent,
   ],
   
   imports: [

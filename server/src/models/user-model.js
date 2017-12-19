@@ -30,7 +30,7 @@ const schema = new Schema({
         type: String,
     },
     gender_id: {
-        type: Number,
+        type: String,
     },
     adress: {
         type: String,

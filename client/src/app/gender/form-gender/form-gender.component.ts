@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Gender } from "./gender";
-import { GenderService } from "./gender.service";
+import { Gender } from "../gender";
+import { GenderService } from "../gender.service";
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-gender',
-  templateUrl: './gender.component.html',
-  styleUrls: ['./gender.component.scss']
+  selector: 'app-form-gender',
+  templateUrl: './form-gender.component.html'
 })
-export class GenderComponent implements OnInit {
+export class FormGenderComponent implements OnInit {
   gender:Gender;
-  id:number;
+  id: any;
 
   constructor(
     private genderService: GenderService, 
@@ -21,7 +20,7 @@ export class GenderComponent implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
 
-    if (isNaN(this.id)){
+    if (this.id == "new"){
       this.gender = new Gender();
     } else {
       this.genderService.get(this.id).subscribe(
@@ -32,22 +31,22 @@ export class GenderComponent implements OnInit {
 
   save() 
   {
-    if (isNaN(this.id)) {
+    if (this.id == "new") {
       this.genderService.post(this.gender).subscribe(
         (gend: Gender) => {
           this.gender = new Gender();
-          this.router.navigate(['/user']);
+          this.router.navigate(['/gender']);
         }
       );
     } else {
       this.genderService.put(this.gender).subscribe(
-        (gend: Gender) => { this.router.navigate(['/user']); }
+        (gend: Gender) => { this.router.navigate(['/gender']); }
       );
     }
   }
 
   cancel() {
-    this.router.navigate(['/user']);
+    this.router.navigate(['/gender']);
   }
   
 }

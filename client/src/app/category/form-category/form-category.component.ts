@@ -11,6 +11,8 @@ import { Category } from '../category';
 export class FormCategoryComponent implements OnInit {
   category: Category;
   id: number;
+  error: string;
+  showAlert: boolean = false;
 
   constructor(
     private categoryService: CategoryService, 
@@ -25,7 +27,8 @@ export class FormCategoryComponent implements OnInit {
       this.category = new Category();
     } else {
       this.categoryService.get(this.id).subscribe(
-        (cat: Category) => { this.category = Object.assign({}, cat); }
+        (cat: Category) => { this.category = Object.assign({}, cat); },
+        error => { console.log(error);}        
       );
     }
   }
@@ -36,11 +39,13 @@ export class FormCategoryComponent implements OnInit {
         (cat: Category) => {
           this.category = new Category();
           this.router.navigate(['/category']);
-        }
+        },
+        error => { console.log(error);}        
       );
     } else {
       this.categoryService.put(this.category).subscribe(
-        (cat: Category) => { this.router.navigate(['/category']); }
+        (cat: Category) => { this.router.navigate(['/category']); },
+        error => { console.log(error);}        
       );
     }
   }

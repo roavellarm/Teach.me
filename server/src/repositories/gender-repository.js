@@ -5,7 +5,7 @@ const Gender = mongoose.model('Gender');
 exports.get = async () => {
     const res = await Gender.find({
         // active: true
-    }, 'title');
+    });
     return res;
 }
 
@@ -30,6 +30,5 @@ exports.update = async (id, data) => {
 }
 
 exports.delete = async (id) => {
-    await Gender
-        .findByIdAndRemove(id);
+    await Gender.findByIdAndRemove(id);
 }

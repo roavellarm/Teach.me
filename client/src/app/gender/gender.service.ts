@@ -7,11 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class GenderService {
-  genders: Gender[] = [
-    // { id:0, title:"Masculino" },
-    // { id:1, title:"Feminino" },
-    // { id:2, title:"Outro" }
-  ];
+  genders: Gender[] = [];
   uri = "http://localhost:3000/gender";
   
   constructor(private http: Http) {}
@@ -22,8 +18,8 @@ export class GenderService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  get(id: number): Observable<Gender> {
-    let url = this.uri + "/" + id;
+  get(_id: string): Observable<Gender> {
+    let url = this.uri + "/" + _id;
     return this.http.get(url)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error));
@@ -39,7 +35,7 @@ export class GenderService {
   }
 
   put(gender: Gender): Observable<Gender> {
-    let url = this.uri + "/" + gender.id;
+    let url = this.uri + "/" + gender._id;
     let bodyString = JSON.stringify(gender);
     let header = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions({ headers: header });
@@ -49,7 +45,7 @@ export class GenderService {
   }
 
   delete(gender: Gender): Observable<Gender> {
-    let url = this.uri + "/" + gender.id;
+    let url = this.uri + "/" + gender._id;
     return this.http.delete(url)
       .map((res: Response) => {})
       .catch((error: any) => Observable.throw(error));
