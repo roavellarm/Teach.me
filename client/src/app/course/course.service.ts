@@ -22,8 +22,8 @@ export class CourseService {
       .catch((error: any) => Observable.throw(error));
   }
 
-  get(id: number): Observable<Course> {
-    let url = this.uri + '/' + id;
+  get(_id: string): Observable<Course> {
+    let url = this.uri + '/' + _id;
     return this.http.get(url)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error));
@@ -46,7 +46,7 @@ export class CourseService {
     let options = new RequestOptions({ headers: header });
 
     return this.http.put(url, bodyString, options)
-      .map((res: Response) => {})
+      .map((res: Response) => { })
       .catch((error: any) => Observable.throw(error));
   }
 

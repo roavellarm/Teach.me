@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 exports.get = async() => {
-    const res = await User.find({
-        // active: true
-    });
+    const res = await User.find({},
+        // '_id','firstName','lastName','birthday','phone','email','userType','gender','adress'
+    );
     return res;
 }
 

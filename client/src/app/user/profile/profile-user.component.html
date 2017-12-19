@@ -6,11 +6,11 @@
   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
   Excepteur sint occaecat cupidatat non proident,
  sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
-<form action="">
+<form #userForm="ngForm">
  <div class="row">
-   <div class="col-md-6">
+   <!-- <div [(ngModel)]="user" class="col-md-6"> -->
     <label>Telefones:</label>
-    <p></p>
+    <p>{{ users }}</p>
 
    </div>
    <div class="col-md-6">
@@ -20,7 +20,7 @@
     <p>fulano@ciclano.com</p>
     <p>fulano@ciclano.com</p>
    </div>
- </div>
+ <!-- </div> -->
 
  _id: any;
  firstName: string;

@@ -2,7 +2,7 @@ import { User } from './../user/user';
 import { Category } from './../category/category';
 
 export class Course {
-    _id: number;
+    _id: any;
     title: string;
     
     instructor: User;

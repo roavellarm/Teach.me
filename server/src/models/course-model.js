@@ -10,26 +10,15 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    
-    // instructor: {
-    //     type: User,
-    // },
-    // student: {
-    //     type: User,
-    // },
-    // category: {
-    //     type: Category,
-    // },
-    instructor_id: {
-        type: String,
+    instructor: {
+        type: JSON,
     },
-    student_id: {
-        type: String,
+    student: {
+        type: JSON,
     },
-    category_id: {
-        type: String,
+    category: {
+        type: JSON,
     },
-
     location: {
         type: String,
         required: true

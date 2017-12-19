@@ -3,6 +3,8 @@ import { Course } from "../course";
 import { CourseService } from "../course.service";
 import { UserService } from "../../user/user.service";
 import { DatePipe } from '@angular/common';
+import { User } from './../../user/user';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-index-course',
@@ -10,14 +12,16 @@ import { DatePipe } from '@angular/common';
 })
 export class IndexCourseComponent implements OnInit {
   title = "Lista de Cursos";
-  courses: any[] = [];
-  users: any[] = [];
+  courses: Course[] = [];
+  users: User[] = [];
   currentUser: string;
   userToken: string;
 
   constructor(
     private courseService: CourseService, 
     private userService: UserService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -48,4 +52,18 @@ export class IndexCourseComponent implements OnInit {
     );
   }
 
+  participate(_id: any) {
+    let course: Course;
+    let student: User;
+    student = this.userService.getByEmail(this.currentUser);
+    this.courseService.get(_id).subscribe(
+      asd => { course = asd; 
+        course.student = student;
+        this.courseService.put(course).subscribe(
+          (updatedCourse: Course) => { this.router.navigate(['/course']); }
+        );
+
+      }
+    );
+  }
 }

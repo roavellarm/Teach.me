@@ -13,7 +13,7 @@ import { User } from './../../user/user';
 })
 export class FormCourseComponent implements OnInit {
   course: Course;
-  id: number;
+  id: any;
   categories: Category[]=[];
   users: User[] = [];
   // students: User[] = [];
@@ -37,26 +37,26 @@ export class FormCourseComponent implements OnInit {
       (cat: Category[]) => { this.categories = cat; }
     );
     
-    if (isNaN(this.id)){
+    if (this.id == "new"){
       this.course = new Course();
     }
     else 
     {
       this.courseService.get(this.id).subscribe(
-        (course: Course) => { this.course = course; }
+        (course: Course) => { this.course = Object.assign({}, course); }
       );
     }
   }
 
   save() 
   {
-    if (isNaN(this.id)) {
+    if (this.id == "new") {
       this.course.instructor = this.userService.getByEmail(this.currentUser);
       this.courseService.post(this.course).subscribe(
         (cours: Course) => {
+          this.refreshUsers();
           this.course = new Course();
           this.router.navigate(['/course']);
-          // this.refreshUsers();
         }
       );
     } 
@@ -64,16 +64,16 @@ export class FormCourseComponent implements OnInit {
     {
       this.courseService.put(this.course).subscribe(
         (cours: Course) => { 
+          this.refreshUsers();
           this.router.navigate(['/course']); 
-          // this.refreshUsers();
         }
       );
     }
   }
 
   cancel() {
+    this.refreshUsers();
     this.router.navigate(['/course']);
-    // this.refreshUsers();
   }
 
   refreshUsers() {

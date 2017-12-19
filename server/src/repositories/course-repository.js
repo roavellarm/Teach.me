@@ -25,6 +25,8 @@ exports.update = async (id, data) => {
         .findByIdAndUpdate(id, {
             $set: {
                 title: data.title,
+                instructor: data.instructor,
+                student: data.student,
             }
         });
 }

@@ -61,10 +61,12 @@ export class UserService {
     return this.users.filter(user => user.userType == false);
   }
 
-  getByEmail(email: string) {
+  getByEmail(email: string):User {
     this.refreshUserList();
     return this.users.find(user => user.email == email);
   }
+
+
 
   private refreshUserList(){
     this.getAll().subscribe(
