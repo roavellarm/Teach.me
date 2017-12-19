@@ -26,11 +26,8 @@ const schema = new Schema({
     userType: {     // true = student; false = instructor
         type: Boolean,
     },
-    userTypeString: { // true = student; false = instructor
-        type: String,
-    },
-    gender_id: {
-        type: String,
+    gender: {
+        type: JSON,
     },
     adress: {
         type: String,

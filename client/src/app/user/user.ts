@@ -17,8 +17,8 @@ export class User {
     // streetNumber: string;
     // streetComplement: string;
     // image: Blob;
-    // gender: Gender;
-    gender_id: string;
+    gender: Gender;
+    // genderId: string;
     
     // temporary
     adress: string; 

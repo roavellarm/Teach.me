@@ -39,8 +39,7 @@ exports.post = async(req, res, next) => {
             // password: md5(req.body.password + global.SALT_KEY),
             password: req.body.password,
             userType: req.body.userType,
-            userTypeString: req.body.userTypeString,
-            gender_id: req.body.gender_id,
+            gender: req.body.gender,
             adress: req.body.adress
             // roles: ["user"]
         });

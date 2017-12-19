@@ -24,8 +24,7 @@ exports.update = async (id, data) => {
                 phone: data.phone,
                 email: data.email,
                 userType: data.userType,
-                userTypeString: data.userTypeString,
-                gender_id: data.gender_id,
+                gender: data.gender,
                 adress: data.adress,
             }
         });

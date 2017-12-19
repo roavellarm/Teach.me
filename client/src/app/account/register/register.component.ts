@@ -13,35 +13,39 @@ export class RegisterComponent implements OnInit {
   error: string;
   showAlert: boolean = false;
 
-  constructor(private service: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private service: UserService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.user = new User();
   }
 
   save() {
-      if (this.emailVerify()) {
+      // if (this.emailVerify()) {
         this.service.post(this.user).subscribe(
           (cat: User) => {
             this.user = new User();
             this.router.navigate(['/user']);
           }
         );
-      } else {
-        this.showAlert = true;
-        this.error = "Email já cadastrado!";
-      }
+      // } else {
+      //   this.showAlert = true;
+      //   this.error = "Email já cadastrado!";
+      // }
   }
 
   cancel() {
     this.router.navigate(['/user']);
   }
 
-  emailVerify() {
-    if (this.service.getByEmail(this.user.email) == undefined) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // emailVerify() {
+  //   if (this.service.getByEmail(this.user.email) == undefined) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

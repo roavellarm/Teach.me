@@ -17,7 +17,7 @@
 </div> -->
 
 <form #userForm="ngForm" class="form-horizontal">
-  <form>
+  <fieldset>        
     <legend><h3>Cadastro de Usuário</h3></legend>
 
     <div *ngIf="showAlert" class="alert alert-danger" role="alert">{{error}}</div>    
@@ -26,8 +26,8 @@
         <label for="select" id="userType" class="col-lg-4 control-label">Tipo de Usuário</label>
         <div class="col-lg-4">
             <select class="form-control" id="userType" name="userType" [(ngModel)]="user.userType">
-                <option value="student"> Estudante </option>
-                <option value="instructor"> Instrutor </option>
+                <option value=true> Estudante </option>
+                <option value=false> Instrutor </option>
             </select>
         </div>
     </div>
@@ -51,5 +51,5 @@
         <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="!userForm.form.valid">Salvar</button>
       </div>
     </div>
-  </form>
+  </fieldset>
 </form>
